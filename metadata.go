@@ -138,6 +138,7 @@ func (h *OAuth2Handler) HandleProtectedResourceMetadata(w http.ResponseWriter, r
 		"resource_documentation":                fmt.Sprintf("%s/docs", h.config.MCPURL),
 		"resource_policy_uri":                   fmt.Sprintf("%s/policy", h.config.MCPURL),
 		"resource_tos_uri":                      fmt.Sprintf("%s/tos", h.config.MCPURL),
+		"scopes_supported":                      []string{"openid", "profile", "email"},
 	}
 
 	// Encode and send response
