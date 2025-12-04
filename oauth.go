@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"net/http/httputil"
 	"strings"
 	"time"
 
@@ -103,7 +104,9 @@ func (s *Server) RegisterHandlers(mux *http.ServeMux) {
 // LogRequestMiddleware creates a server-level authentication hook for all MCP requests.
 func (s *Server) LogRequestMiddleware(next func(http.ResponseWriter, *http.Request)) func(http.ResponseWriter, *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
-		defer s.logger.Info(fmt.Sprintf("Log Request:\nRequest: %+v\nResponse: %+v\n", r, w))
+		// leave error unhandled since it's a debug print
+		req, _ := httputil.DumpRequest(r, true)
+		s.logger.Info(fmt.Sprintf("\nLog Request dumped = %q\n", req))
 		next(w, r)
 	}
 }
