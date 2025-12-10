@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"net/http/httputil"
 	"strings"
 	"time"
 
@@ -90,14 +91,24 @@ func NewServer(cfg *Config) (*Server, error) {
 // Note: WithOAuth() calls this automatically. Only call directly if using
 // NewServer() for advanced use cases.
 func (s *Server) RegisterHandlers(mux *http.ServeMux) {
-	mux.HandleFunc("/.well-known/oauth-authorization-server", s.handler.HandleAuthorizationServerMetadata)
-	mux.HandleFunc("/.well-known/oauth-protected-resource", s.handler.HandleProtectedResourceMetadata)
-	mux.HandleFunc("/.well-known/jwks.json", s.handler.HandleJWKS)
-	mux.HandleFunc("/oauth/authorize", s.handler.HandleAuthorize)
-	mux.HandleFunc("/oauth/callback", s.handler.HandleCallback)
-	mux.HandleFunc("/oauth/token", s.handler.HandleToken)
-	mux.HandleFunc("/oauth/register", s.handler.HandleRegister)
-	mux.HandleFunc("/.well-known/openid-configuration", s.handler.HandleOIDCDiscovery)
+	mux.HandleFunc("/.well-known/oauth-authorization-server", s.LogRequestMiddleware(s.handler.HandleAuthorizationServerMetadata))
+	mux.HandleFunc("/.well-known/oauth-protected-resource", s.LogRequestMiddleware(s.handler.HandleProtectedResourceMetadata))
+	mux.HandleFunc("/.well-known/jwks.json", s.LogRequestMiddleware(s.handler.HandleJWKS))
+	mux.HandleFunc("/oauth/authorize", s.LogRequestMiddleware(s.handler.HandleAuthorize))
+	mux.HandleFunc("/oauth/callback", s.LogRequestMiddleware(s.handler.HandleCallback))
+	mux.HandleFunc("/oauth/token", s.LogRequestMiddleware(s.handler.HandleToken))
+	mux.HandleFunc("/oauth/register", s.LogRequestMiddleware(s.handler.HandleRegister))
+	mux.HandleFunc("/.well-known/openid-configuration", s.LogRequestMiddleware(s.handler.HandleOIDCDiscovery))
+}
+
+// LogRequestMiddleware creates a server-level authentication hook for all MCP requests.
+func (s *Server) LogRequestMiddleware(next func(http.ResponseWriter, *http.Request)) func(http.ResponseWriter, *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
+		// leave error unhandled since it's a debug print
+		req, _ := httputil.DumpRequest(r, true)
+		s.logger.Info(fmt.Sprintf("\nLog Request dumped = %q\n", req))
+		next(w, r)
+	}
 }
 
 // ValidateTokenCached validates a token with caching support.
