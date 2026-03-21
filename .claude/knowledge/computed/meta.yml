@@ -1,0 +1,16 @@
+# Claude knowledge layer metadata
+generated: 2026-03-20T03:16:48Z
+source_commit: ad1964e1850466dda11ca5d5d8b64ab55c15ac35
+stale_if_older_than: 7d
+artifacts:
+  api-surface.json: { bytes: 13148, tokens: ~3287 }
+  call-graph.json: { bytes: 158378, tokens: ~39594 }
+  concurrency-map.json: { bytes: 3694, tokens: ~923 }
+  git-intelligence.json: { bytes: 7243, tokens: ~1810 }
+  interface-map.json: { bytes: 2771, tokens: ~692 }
+  internal-deps.json: { bytes: 2350, tokens: ~587 }
+  summary.json: { bytes: 8353, tokens: ~2088 }
+  type-index.json: { bytes: 22141, tokens: ~5535 }
+  go-mod-graph.txt: { bytes: 4607, tokens: ~1151 }
+total_bytes: 222685
+total_tokens: ~55671

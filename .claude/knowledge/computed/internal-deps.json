@@ -1,0 +1,104 @@
+{
+  "generated": "2026-03-20T03:16:43Z",
+  "module": "github.com/Vungle/oauth-mcp-proxy",
+  "total_packages": 8,
+  "packages": {
+    ".": {
+      "path": ".",
+      "rel_dir": ".",
+      "imports": [
+        "provider"
+      ],
+      "imported_by": [
+        "examples/mark3labs/advanced",
+        "examples/mark3labs/simple",
+        "examples/official/advanced",
+        "examples/official/simple",
+        "mark3labs",
+        "mcp"
+      ],
+      "file_count": 8
+    },
+    "examples/mark3labs/advanced": {
+      "path": "examples/mark3labs/advanced",
+      "rel_dir": "examples/mark3labs/advanced",
+      "imports": [
+        ".",
+        "mark3labs"
+      ],
+      "imported_by": null,
+      "file_count": 1
+    },
+    "examples/mark3labs/simple": {
+      "path": "examples/mark3labs/simple",
+      "rel_dir": "examples/mark3labs/simple",
+      "imports": [
+        ".",
+        "mark3labs"
+      ],
+      "imported_by": null,
+      "file_count": 1
+    },
+    "examples/official/advanced": {
+      "path": "examples/official/advanced",
+      "rel_dir": "examples/official/advanced",
+      "imports": [
+        ".",
+        "mcp"
+      ],
+      "imported_by": null,
+      "file_count": 1
+    },
+    "examples/official/simple": {
+      "path": "examples/official/simple",
+      "rel_dir": "examples/official/simple",
+      "imports": [
+        ".",
+        "mcp"
+      ],
+      "imported_by": null,
+      "file_count": 1
+    },
+    "mark3labs": {
+      "path": "mark3labs",
+      "rel_dir": "mark3labs",
+      "imports": [
+        "."
+      ],
+      "imported_by": [
+        "examples/mark3labs/advanced",
+        "examples/mark3labs/simple"
+      ],
+      "file_count": 2
+    },
+    "mcp": {
+      "path": "mcp",
+      "rel_dir": "mcp",
+      "imports": [
+        "."
+      ],
+      "imported_by": [
+        "examples/official/advanced",
+        "examples/official/simple"
+      ],
+      "file_count": 1
+    },
+    "provider": {
+      "path": "provider",
+      "rel_dir": "provider",
+      "imports": null,
+      "imported_by": [
+        "."
+      ],
+      "file_count": 1
+    }
+  },
+  "external_deps": [
+    "github.com/coreos/go-oidc/v3/oidc",
+    "github.com/golang-jwt/jwt/v5",
+    "github.com/mark3labs/mcp-go/mcp",
+    "github.com/mark3labs/mcp-go/server",
+    "github.com/modelcontextprotocol/go-sdk/mcp",
+    "golang.org/x/oauth2"
+  ]
+}

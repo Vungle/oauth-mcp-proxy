@@ -1,0 +1,41 @@
+# oauth-mcp-proxy review rules
+
+global:
+  - "Run make test before PR — all tests must pass"
+  - "Run make lint before PR — includes gofmt, go mod tidy, golangci-lint"
+  - "Security considerations documented for any auth-related changes"
+  - "No raw tokens in log statements — use SHA-256 hash prefix only"
+  - "New exported functions must have godoc comments"
+
+core_package:
+  - "Token validation changes affect ALL adapters — test with both mark3labs and mcp adapter patterns"
+  - "Cache TTL changes (currently 5min) affect security posture — document trade-offs"
+  - "Core package must NOT import any MCP SDK (mark3labs or official)"
+  - "New context keys must use typed contextKey constants, not raw strings"
+  - "Config.Validate() changes may break FromEnv() — test both paths"
+
+provider/:
+  - "New providers must implement provider.TokenValidator interface (ValidateToken + Initialize)"
+  - "OIDC changes need testing against real provider or well-structured mocks"
+  - "Audience validation is security-critical — both HMAC and OIDC must check aud claim"
+  - "HMACValidator is sync.Once-initialized — test concurrent access"
+  - "OIDCValidator uses 30s init timeout, 10s validation timeout — document if changed"
+
+mark3labs/:
+  - "Adapter changes must match mark3labs/mcp-go SDK API (currently v0.41.1)"
+  - "Middleware must propagate context: GetOAuthToken -> ValidateTokenCached -> WithUser"
+  - "WithOAuth returns (*Server, ServerOption, error) — do not change return signature without major version bump"
+  - "NewMiddleware wraps server.ToolHandlerFunc — verify compatibility with SDK updates"
+
+mcp/:
+  - "Adapter changes must match modelcontextprotocol/go-sdk API (currently v1.0.0)"
+  - "WithOAuth returns (*Server, http.Handler, error) — do not change return signature without major version bump"
+  - "Handler must validate token AND add to context before passing to StreamableHTTPHandler"
+  - "OPTIONS passthrough is required for CORS — do not add auth checks to OPTIONS"
+
+handlers.go:
+  - "Endpoint changes affect OAuth discovery (/.well-known/* URLs)"
+  - "Redirect URI validation is security-critical — changes require security review"
+  - "State parameter HMAC signing prevents CSRF — do not remove or weaken"
+  - "RFC 8414 metadata endpoint must stay backward-compatible"
+  - "New endpoints must be registered in RegisterHandlers()"

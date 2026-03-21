@@ -1,0 +1,104 @@
+{
+  "generated": "2026-03-20T03:16:41Z",
+  "module": "github.com/Vungle/oauth-mcp-proxy",
+  "interfaces": [
+    {
+      "name": "Logger",
+      "package": "github.com/Vungle/oauth-mcp-proxy",
+      "file": "logger.go",
+      "line": 22,
+      "methods": [
+        {
+          "name": "Debug",
+          "signature": "func(msg string, args ...interface{})"
+        },
+        {
+          "name": "Error",
+          "signature": "func(msg string, args ...interface{})"
+        },
+        {
+          "name": "Info",
+          "signature": "func(msg string, args ...interface{})"
+        },
+        {
+          "name": "Warn",
+          "signature": "func(msg string, args ...interface{})"
+        }
+      ],
+      "implementors": [
+        {
+          "name": "Logger",
+          "package": "github.com/Vungle/oauth-mcp-proxy/provider",
+          "file": "provider/provider.go",
+          "line": 24,
+          "pointer": false
+        }
+      ]
+    },
+    {
+      "name": "Logger",
+      "package": "github.com/Vungle/oauth-mcp-proxy/provider",
+      "file": "provider/provider.go",
+      "line": 24,
+      "methods": [
+        {
+          "name": "Debug",
+          "signature": "func(msg string, args ...interface{})"
+        },
+        {
+          "name": "Error",
+          "signature": "func(msg string, args ...interface{})"
+        },
+        {
+          "name": "Info",
+          "signature": "func(msg string, args ...interface{})"
+        },
+        {
+          "name": "Warn",
+          "signature": "func(msg string, args ...interface{})"
+        }
+      ],
+      "implementors": [
+        {
+          "name": "Logger",
+          "package": "github.com/Vungle/oauth-mcp-proxy",
+          "file": "logger.go",
+          "line": 22,
+          "pointer": false
+        }
+      ]
+    },
+    {
+      "name": "TokenValidator",
+      "package": "github.com/Vungle/oauth-mcp-proxy/provider",
+      "file": "provider/provider.go",
+      "line": 41,
+      "methods": [
+        {
+          "name": "Initialize",
+          "signature": "func(cfg *github.com/Vungle/oauth-mcp-proxy/provider.Config) error"
+        },
+        {
+          "name": "ValidateToken",
+          "signature": "func(ctx context.Context, token string) (*github.com/Vungle/oauth-mcp-proxy/provider.User, error)"
+        }
+      ],
+      "implementors": [
+        {
+          "name": "HMACValidator",
+          "package": "github.com/Vungle/oauth-mcp-proxy/provider",
+          "file": "provider/provider.go",
+          "line": 47,
+          "pointer": true
+        },
+        {
+          "name": "OIDCValidator",
+          "package": "github.com/Vungle/oauth-mcp-proxy/provider",
+          "file": "provider/provider.go",
+          "line": 54,
+          "pointer": true
+        }
+      ]
+    }
+  ]
+}

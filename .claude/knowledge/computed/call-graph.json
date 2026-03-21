@@ -1,0 +1,4277 @@
+{
+  "generated": "2026-03-20T03:16:48Z",
+  "module": "github.com/Vungle/oauth-mcp-proxy",
+  "total_edges": 489,
+  "total_functions": 234,
+  "edges": [
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.getEnv",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "os.LookupEnv",
+      "callee_pkg": "os",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 122
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.init",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "github.com/mark3labs/mcp-go/server.init",
+      "callee_pkg": "github.com/mark3labs/mcp-go/server"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.init",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "context.init",
+      "callee_pkg": "context"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.init",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "fmt.init",
+      "callee_pkg": "fmt"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.init",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "log.init",
+      "callee_pkg": "log"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.init",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "net/http.init",
+      "callee_pkg": "net/http"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.init",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "os.init",
+      "callee_pkg": "os"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.init",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.init",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.init",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "github.com/Vungle/oauth-mcp-proxy/mark3labs.init",
+      "callee_pkg": "mark3labs"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.init",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "github.com/mark3labs/mcp-go/mcp.init",
+      "callee_pkg": "github.com/mark3labs/mcp-go/mcp"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).WithIssuer",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "github.com/mark3labs/mcp-go/server.WithStateLess",
+      "callee_pkg": "github.com/mark3labs/mcp-go/server",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).LogStartup",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).WithAudience",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).WithHost",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).WithPort",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).WithTLS",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "log.Printf",
+      "callee_pkg": "log",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetHTTPServerOptions",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "github.com/mark3labs/mcp-go/server.NewMCPServer",
+      "callee_pkg": "github.com/mark3labs/mcp-go/server",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "github.com/Vungle/oauth-mcp-proxy/mark3labs.WithOAuth",
+      "callee_pkg": "mark3labs",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).Build",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "log.Fatalf",
+      "callee_pkg": "log",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "net/http.NewServeMux",
+      "callee_pkg": "net/http",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetCallbackURL",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.getEnv",
+      "callee_pkg": "examples/mark3labs/advanced",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).WithProvider",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.NewConfigBuilder",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "github.com/mark3labs/mcp-go/server.WithEndpointPath",
+      "callee_pkg": "github.com/mark3labs/mcp-go/server",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "github.com/mark3labs/mcp-go/server.NewStreamableHTTPServer",
+      "callee_pkg": "github.com/mark3labs/mcp-go/server",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).WrapMCPEndpoint",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "net/http.ListenAndServe",
+      "callee_pkg": "net/http",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "net/http.ListenAndServeTLS",
+      "callee_pkg": "net/http",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetAllEndpoints",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "(*net/http.ServeMux).HandleFunc",
+      "callee_pkg": "net/http",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "(*github.com/mark3labs/mcp-go/server.MCPServer).AddTool",
+      "callee_pkg": "github.com/mark3labs/mcp-go/server",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main$1",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "(net/http.Header).Set",
+      "callee_pkg": "net/http",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 54
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main$1",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "(*github.com/mark3labs/mcp-go/server.StreamableHTTPServer).ServeHTTP",
+      "callee_pkg": "github.com/mark3labs/mcp-go/server",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 54
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main$2",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "(net/http.Header).Set",
+      "callee_pkg": "net/http",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 70
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main$2",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "fmt.Fprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 70
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main$2",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetStatusString",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 70
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main$2",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.getEnv",
+      "callee_pkg": "examples/mark3labs/advanced",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 70
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main$3",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.GetUserFromContext",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 85
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main$3",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 85
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main$3",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 85
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main$3",
+      "caller_pkg": "examples/mark3labs/advanced",
+      "callee": "github.com/mark3labs/mcp-go/mcp.NewToolResultText",
+      "callee_pkg": "github.com/mark3labs/mcp-go/mcp",
+      "caller_file": "examples/mark3labs/advanced/main.go",
+      "caller_line": 85
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.getEnv",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "os.Getenv",
+      "callee_pkg": "os",
+      "caller_file": "examples/mark3labs/simple/main.go",
+      "caller_line": 82
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.init",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "os.init",
+      "callee_pkg": "os"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.init",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "net/http.init",
+      "callee_pkg": "net/http"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.init",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "log.init",
+      "callee_pkg": "log"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.init",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "fmt.init",
+      "callee_pkg": "fmt"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.init",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "context.init",
+      "callee_pkg": "context"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.init",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "github.com/mark3labs/mcp-go/server.init",
+      "callee_pkg": "github.com/mark3labs/mcp-go/server"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.init",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "github.com/mark3labs/mcp-go/mcp.init",
+      "callee_pkg": "github.com/mark3labs/mcp-go/mcp"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.init",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "github.com/Vungle/oauth-mcp-proxy/mark3labs.init",
+      "callee_pkg": "mark3labs"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.init",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.init",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.main",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "github.com/mark3labs/mcp-go/server.WithHTTPContextFunc",
+      "callee_pkg": "github.com/mark3labs/mcp-go/server",
+      "caller_file": "examples/mark3labs/simple/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.main",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "(*github.com/mark3labs/mcp-go/server.MCPServer).AddTool",
+      "callee_pkg": "github.com/mark3labs/mcp-go/server",
+      "caller_file": "examples/mark3labs/simple/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.main",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "log.Printf",
+      "callee_pkg": "log",
+      "caller_file": "examples/mark3labs/simple/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.main",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "(*net/http.ServeMux).HandleFunc",
+      "callee_pkg": "net/http",
+      "caller_file": "examples/mark3labs/simple/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.main",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).WrapMCPEndpoint",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/mark3labs/simple/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.main",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "github.com/mark3labs/mcp-go/server.NewStreamableHTTPServer",
+      "callee_pkg": "github.com/mark3labs/mcp-go/server",
+      "caller_file": "examples/mark3labs/simple/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.main",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "net/http.ListenAndServe",
+      "callee_pkg": "net/http",
+      "caller_file": "examples/mark3labs/simple/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.main",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.CreateHTTPContextFunc",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/mark3labs/simple/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.main",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "github.com/Vungle/oauth-mcp-proxy/mark3labs.WithOAuth",
+      "callee_pkg": "mark3labs",
+      "caller_file": "examples/mark3labs/simple/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.main",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "net/http.NewServeMux",
+      "callee_pkg": "net/http",
+      "caller_file": "examples/mark3labs/simple/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.main",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "github.com/mark3labs/mcp-go/server.WithEndpointPath",
+      "callee_pkg": "github.com/mark3labs/mcp-go/server",
+      "caller_file": "examples/mark3labs/simple/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.main",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "log.Println",
+      "callee_pkg": "log",
+      "caller_file": "examples/mark3labs/simple/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.main",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "log.Fatalf",
+      "callee_pkg": "log",
+      "caller_file": "examples/mark3labs/simple/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.main",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "github.com/mark3labs/mcp-go/server.NewMCPServer",
+      "callee_pkg": "github.com/mark3labs/mcp-go/server",
+      "caller_file": "examples/mark3labs/simple/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.main",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "examples/mark3labs/simple/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.main",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.getEnv",
+      "callee_pkg": "examples/mark3labs/simple",
+      "caller_file": "examples/mark3labs/simple/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.main$1",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.GetUserFromContext",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/mark3labs/simple/main.go",
+      "caller_line": 44
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.main$1",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "examples/mark3labs/simple/main.go",
+      "caller_line": 44
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.main$1",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "examples/mark3labs/simple/main.go",
+      "caller_line": 44
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.main$1",
+      "caller_pkg": "examples/mark3labs/simple",
+      "callee": "github.com/mark3labs/mcp-go/mcp.NewToolResultText",
+      "callee_pkg": "github.com/mark3labs/mcp-go/mcp",
+      "caller_file": "examples/mark3labs/simple/main.go",
+      "caller_line": 44
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.getEnv",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "os.Getenv",
+      "callee_pkg": "os",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 164
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.init",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "context.init",
+      "callee_pkg": "context"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.init",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "github.com/Vungle/oauth-mcp-proxy/mcp.init",
+      "callee_pkg": "mcp"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.init",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "github.com/modelcontextprotocol/go-sdk/mcp.init",
+      "callee_pkg": "github.com/modelcontextprotocol/go-sdk/mcp"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.init",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.init",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.init",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "time.init",
+      "callee_pkg": "time"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.init",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "os.init",
+      "callee_pkg": "os"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.init",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "net/http.init",
+      "callee_pkg": "net/http"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.init",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "log.init",
+      "callee_pkg": "log"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.init",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "fmt.init",
+      "callee_pkg": "fmt"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "github.com/modelcontextprotocol/go-sdk/mcp.AddTool[*github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.UserInfoParams any]",
+      "callee_pkg": "",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "log.Printf",
+      "callee_pkg": "log",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).WithHost",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).WithAudience",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).WithTLS",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).Build",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "log.Fatalf",
+      "callee_pkg": "log",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).WithIssuer",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.getEnv",
+      "callee_pkg": "examples/official/advanced",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.NewConfigBuilder",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).WithProvider",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "github.com/modelcontextprotocol/go-sdk/mcp.NewServer",
+      "callee_pkg": "github.com/modelcontextprotocol/go-sdk/mcp",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "github.com/modelcontextprotocol/go-sdk/mcp.AddTool[*github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.GreetParams any]",
+      "callee_pkg": "",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).WithPort",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "net/http.NewServeMux",
+      "callee_pkg": "net/http",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "net/http.ListenAndServe",
+      "callee_pkg": "net/http",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "github.com/Vungle/oauth-mcp-proxy/mcp.WithOAuth",
+      "callee_pkg": "mcp",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).LogStartup",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "github.com/modelcontextprotocol/go-sdk/mcp.AddTool[*github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.TimeParams any]",
+      "callee_pkg": "",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetAuthorizationServerMetadataURL",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetOIDCDiscoveryURL",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetStatusString",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "log.Println",
+      "callee_pkg": "log",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "net/http.ListenAndServeTLS",
+      "callee_pkg": "net/http",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 16
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main$1",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.GetUserFromContext",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 45
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main$1",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "log.Printf",
+      "callee_pkg": "log",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 45
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main$1",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 45
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main$1",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 45
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main$2",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 66
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main$2",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 66
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main$2",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "log.Printf",
+      "callee_pkg": "log",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 66
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main$2",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.GetUserFromContext",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 66
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main$3",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "(time.Time).Format",
+      "callee_pkg": "time",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 91
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main$3",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "time.Now",
+      "callee_pkg": "time",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 91
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main$3",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "log.Printf",
+      "callee_pkg": "log",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 91
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main$3",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 91
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main$3",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.GetUserFromContext",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 91
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main$3",
+      "caller_pkg": "examples/official/advanced",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "examples/official/advanced/main.go",
+      "caller_line": 91
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.getEnv",
+      "caller_pkg": "examples/official/simple",
+      "callee": "os.Getenv",
+      "callee_pkg": "os",
+      "caller_file": "examples/official/simple/main.go",
+      "caller_line": 90
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.init",
+      "caller_pkg": "examples/official/simple",
+      "callee": "net/http.init",
+      "callee_pkg": "net/http"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.init",
+      "caller_pkg": "examples/official/simple",
+      "callee": "os.init",
+      "callee_pkg": "os"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.init",
+      "caller_pkg": "examples/official/simple",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.init",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.init",
+      "caller_pkg": "examples/official/simple",
+      "callee": "fmt.init",
+      "callee_pkg": "fmt"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.init",
+      "caller_pkg": "examples/official/simple",
+      "callee": "log.init",
+      "callee_pkg": "log"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.init",
+      "caller_pkg": "examples/official/simple",
+      "callee": "github.com/modelcontextprotocol/go-sdk/mcp.init",
+      "callee_pkg": "github.com/modelcontextprotocol/go-sdk/mcp"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.init",
+      "caller_pkg": "examples/official/simple",
+      "callee": "github.com/Vungle/oauth-mcp-proxy/mcp.init",
+      "callee_pkg": "mcp"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.init",
+      "caller_pkg": "examples/official/simple",
+      "callee": "context.init",
+      "callee_pkg": "context"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.main",
+      "caller_pkg": "examples/official/simple",
+      "callee": "log.Println",
+      "callee_pkg": "log",
+      "caller_file": "examples/official/simple/main.go",
+      "caller_line": 15
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.main",
+      "caller_pkg": "examples/official/simple",
+      "callee": "log.Printf",
+      "callee_pkg": "log",
+      "caller_file": "examples/official/simple/main.go",
+      "caller_line": 15
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.main",
+      "caller_pkg": "examples/official/simple",
+      "callee": "net/http.NewServeMux",
+      "callee_pkg": "net/http",
+      "caller_file": "examples/official/simple/main.go",
+      "caller_line": 15
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.main",
+      "caller_pkg": "examples/official/simple",
+      "callee": "github.com/modelcontextprotocol/go-sdk/mcp.AddTool[*github.com/Vungle/oauth-mcp-proxy/examples/official/simple.GreetParams any]",
+      "callee_pkg": "",
+      "caller_file": "examples/official/simple/main.go",
+      "caller_line": 15
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.main",
+      "caller_pkg": "examples/official/simple",
+      "callee": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.getEnv",
+      "callee_pkg": "examples/official/simple",
+      "caller_file": "examples/official/simple/main.go",
+      "caller_line": 15
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.main",
+      "caller_pkg": "examples/official/simple",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "examples/official/simple/main.go",
+      "caller_line": 15
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.main",
+      "caller_pkg": "examples/official/simple",
+      "callee": "github.com/modelcontextprotocol/go-sdk/mcp.NewServer",
+      "callee_pkg": "github.com/modelcontextprotocol/go-sdk/mcp",
+      "caller_file": "examples/official/simple/main.go",
+      "caller_line": 15
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.main",
+      "caller_pkg": "examples/official/simple",
+      "callee": "net/http.ListenAndServe",
+      "callee_pkg": "net/http",
+      "caller_file": "examples/official/simple/main.go",
+      "caller_line": 15
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.main",
+      "caller_pkg": "examples/official/simple",
+      "callee": "github.com/Vungle/oauth-mcp-proxy/mcp.WithOAuth",
+      "callee_pkg": "mcp",
+      "caller_file": "examples/official/simple/main.go",
+      "caller_line": 15
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.main",
+      "caller_pkg": "examples/official/simple",
+      "callee": "log.Fatalf",
+      "callee_pkg": "log",
+      "caller_file": "examples/official/simple/main.go",
+      "caller_line": 15
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.main",
+      "caller_pkg": "examples/official/simple",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).LogStartup",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/official/simple/main.go",
+      "caller_line": 15
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.main$1",
+      "caller_pkg": "examples/official/simple",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.GetUserFromContext",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "examples/official/simple/main.go",
+      "caller_line": 31
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.main$1",
+      "caller_pkg": "examples/official/simple",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "examples/official/simple/main.go",
+      "caller_line": 31
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.main$1",
+      "caller_pkg": "examples/official/simple",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "examples/official/simple/main.go",
+      "caller_line": 31
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Config).Validate",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "config.go",
+      "caller_line": 37
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).Build",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Config).Validate",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "config.go",
+      "caller_line": 251
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).Build",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.AutoDetectServerURL",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "config.go",
+      "caller_line": 251
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).GetAuthorizationServerMetadata",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "metadata.go",
+      "caller_line": 273
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorizationServerMetadata",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Error",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "metadata.go",
+      "caller_line": 81
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorizationServerMetadata",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "net/http.Error",
+      "callee_pkg": "net/http",
+      "caller_file": "metadata.go",
+      "caller_line": 81
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorizationServerMetadata",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*encoding/json.Encoder).Encode",
+      "callee_pkg": "encoding/json",
+      "caller_file": "metadata.go",
+      "caller_line": 81
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorizationServerMetadata",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "encoding/json.NewEncoder",
+      "callee_pkg": "encoding/json",
+      "caller_file": "metadata.go",
+      "caller_line": 81
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorizationServerMetadata",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).GetAuthorizationServerMetadata",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "metadata.go",
+      "caller_line": 81
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorizationServerMetadata",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(net/http.Header).Set",
+      "callee_pkg": "net/http",
+      "caller_file": "metadata.go",
+      "caller_line": 81
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorize",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(net/url.Values).Get",
+      "callee_pkg": "net/url",
+      "caller_file": "handlers.go",
+      "caller_line": 268
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorize",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*net/url.URL).Query",
+      "callee_pkg": "net/url",
+      "caller_file": "handlers.go",
+      "caller_line": 268
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorize",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "net/http.Redirect",
+      "callee_pkg": "net/http",
+      "caller_file": "handlers.go",
+      "caller_line": 268
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorize",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "strings.TrimSpace",
+      "callee_pkg": "strings",
+      "caller_file": "handlers.go",
+      "caller_line": 268
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorize",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Warn",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 268
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorize",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "net/url.Parse",
+      "callee_pkg": "net/url",
+      "caller_file": "handlers.go",
+      "caller_line": 268
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorize",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Info",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 268
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorize",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.truncateString",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 268
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorize",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).signState",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 268
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorize",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).isValidRedirectURI",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 268
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorize",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "net/http.Error",
+      "callee_pkg": "net/http",
+      "caller_file": "handlers.go",
+      "caller_line": 268
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorize",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(net/url.Values).Set",
+      "callee_pkg": "net/url",
+      "caller_file": "handlers.go",
+      "caller_line": 268
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorize",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(net/url.Values).Encode",
+      "callee_pkg": "net/url",
+      "caller_file": "handlers.go",
+      "caller_line": 268
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorize",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*net/url.URL).String",
+      "callee_pkg": "net/url",
+      "caller_file": "handlers.go",
+      "caller_line": 268
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorize",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*golang.org/x/oauth2.Config).AuthCodeURL",
+      "callee_pkg": "golang.org/x/oauth2",
+      "caller_file": "handlers.go",
+      "caller_line": 268
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorize",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Error",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 268
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorize",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "strings.Contains",
+      "callee_pkg": "strings",
+      "caller_file": "handlers.go",
+      "caller_line": 268
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorize",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.isLocalhostURI",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 268
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleCallback",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Error",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 410
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleCallback",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).showSuccessPage",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 410
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleCallback",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Warn",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 410
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleCallback",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).verifyState",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 410
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleCallback",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "handlers.go",
+      "caller_line": 410
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleCallback",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.isLocalhostURI",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 410
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleCallback",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "strings.Contains",
+      "callee_pkg": "strings",
+      "caller_file": "handlers.go",
+      "caller_line": 410
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleCallback",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.truncateString",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 410
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleCallback",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "net/http.Error",
+      "callee_pkg": "net/http",
+      "caller_file": "handlers.go",
+      "caller_line": 410
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleCallback",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*net/url.URL).Query",
+      "callee_pkg": "net/url",
+      "caller_file": "handlers.go",
+      "caller_line": 410
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleCallback",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(net/url.Values).Get",
+      "callee_pkg": "net/url",
+      "caller_file": "handlers.go",
+      "caller_line": 410
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleCallback",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Info",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 410
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleCallback",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "net/http.Redirect",
+      "callee_pkg": "net/http",
+      "caller_file": "handlers.go",
+      "caller_line": 410
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleCallbackRedirect",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "net/http.Redirect",
+      "callee_pkg": "net/http",
+      "caller_file": "metadata.go",
+      "caller_line": 212
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleJWKS",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(net/http.Header).Set",
+      "callee_pkg": "net/http",
+      "caller_file": "handlers.go",
+      "caller_line": 199
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleJWKS",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Error",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 199
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleJWKS",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "handlers.go",
+      "caller_line": 199
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleJWKS",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleJWKS$1",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 199
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleJWKS",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(net/http.Header).Get",
+      "callee_pkg": "net/http",
+      "caller_file": "handlers.go",
+      "caller_line": 199
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleJWKS",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "io.Copy",
+      "callee_pkg": "io",
+      "caller_file": "handlers.go",
+      "caller_line": 199
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleJWKS",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*net/http.Client).Get",
+      "callee_pkg": "net/http",
+      "caller_file": "handlers.go",
+      "caller_line": 199
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleJWKS",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "net/http.Error",
+      "callee_pkg": "net/http",
+      "caller_file": "handlers.go",
+      "caller_line": 199
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleMetadata",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(net/http.Header).Set",
+      "callee_pkg": "net/http",
+      "caller_file": "metadata.go",
+      "caller_line": 12
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleMetadata",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "net/http.Error",
+      "callee_pkg": "net/http",
+      "caller_file": "metadata.go",
+      "caller_line": 12
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleMetadata",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Error",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "metadata.go",
+      "caller_line": 12
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleMetadata",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*encoding/json.Encoder).Encode",
+      "callee_pkg": "encoding/json",
+      "caller_file": "metadata.go",
+      "caller_line": 12
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleMetadata",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "encoding/json.NewEncoder",
+      "callee_pkg": "encoding/json",
+      "caller_file": "metadata.go",
+      "caller_line": 12
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleMetadata",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "metadata.go",
+      "caller_line": 12
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleMetadata",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Fprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "metadata.go",
+      "caller_line": 12
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleOIDCDiscovery",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(net/http.Header).Set",
+      "callee_pkg": "net/http",
+      "caller_file": "metadata.go",
+      "caller_line": 222
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleOIDCDiscovery",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "encoding/json.NewEncoder",
+      "callee_pkg": "encoding/json",
+      "caller_file": "metadata.go",
+      "caller_line": 222
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleOIDCDiscovery",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "metadata.go",
+      "caller_line": 222
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleOIDCDiscovery",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Info",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "metadata.go",
+      "caller_line": 222
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleOIDCDiscovery",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "net/http.Error",
+      "callee_pkg": "net/http",
+      "caller_file": "metadata.go",
+      "caller_line": 222
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleOIDCDiscovery",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Error",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "metadata.go",
+      "caller_line": 222
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleOIDCDiscovery",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*encoding/json.Encoder).Encode",
+      "callee_pkg": "encoding/json",
+      "caller_file": "metadata.go",
+      "caller_line": 222
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleProtectedResourceMetadata",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Error",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "metadata.go",
+      "caller_line": 113
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleProtectedResourceMetadata",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "metadata.go",
+      "caller_line": 113
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleProtectedResourceMetadata",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*encoding/json.Encoder).Encode",
+      "callee_pkg": "encoding/json",
+      "caller_file": "metadata.go",
+      "caller_line": 113
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleProtectedResourceMetadata",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "encoding/json.NewEncoder",
+      "callee_pkg": "encoding/json",
+      "caller_file": "metadata.go",
+      "caller_line": 113
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleProtectedResourceMetadata",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(net/http.Header).Set",
+      "callee_pkg": "net/http",
+      "caller_file": "metadata.go",
+      "caller_line": 113
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleProtectedResourceMetadata",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "net/http.Error",
+      "callee_pkg": "net/http",
+      "caller_file": "metadata.go",
+      "caller_line": 113
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleRegister",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Error",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "metadata.go",
+      "caller_line": 152
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleRegister",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "strings.Contains",
+      "callee_pkg": "strings",
+      "caller_file": "metadata.go",
+      "caller_line": 152
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleRegister",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(net/http.Header).Set",
+      "callee_pkg": "net/http",
+      "caller_file": "metadata.go",
+      "caller_line": 152
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleRegister",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "net/http.Error",
+      "callee_pkg": "net/http",
+      "caller_file": "metadata.go",
+      "caller_line": 152
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleRegister",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "encoding/json.NewDecoder",
+      "callee_pkg": "encoding/json",
+      "caller_file": "metadata.go",
+      "caller_line": 152
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleRegister",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*encoding/json.Decoder).Decode",
+      "callee_pkg": "encoding/json",
+      "caller_file": "metadata.go",
+      "caller_line": 152
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleRegister",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Info",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "metadata.go",
+      "caller_line": 152
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleRegister",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "time.Now",
+      "callee_pkg": "time",
+      "caller_file": "metadata.go",
+      "caller_line": 152
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleRegister",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(time.Time).Unix",
+      "callee_pkg": "time",
+      "caller_file": "metadata.go",
+      "caller_line": 152
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleRegister",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "encoding/json.NewEncoder",
+      "callee_pkg": "encoding/json",
+      "caller_file": "metadata.go",
+      "caller_line": 152
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleRegister",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*encoding/json.Encoder).Encode",
+      "callee_pkg": "encoding/json",
+      "caller_file": "metadata.go",
+      "caller_line": 152
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleRegister",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "strings.TrimSpace",
+      "callee_pkg": "strings",
+      "caller_file": "metadata.go",
+      "caller_line": 152
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "net/http.Error",
+      "callee_pkg": "net/http",
+      "caller_file": "handlers.go",
+      "caller_line": 485
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "strings.Contains",
+      "callee_pkg": "strings",
+      "caller_file": "handlers.go",
+      "caller_line": 485
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "context.Background",
+      "callee_pkg": "context",
+      "caller_file": "handlers.go",
+      "caller_line": 485
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(time.Duration).Seconds",
+      "callee_pkg": "time",
+      "caller_file": "handlers.go",
+      "caller_line": 485
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "strings.TrimSpace",
+      "callee_pkg": "strings",
+      "caller_file": "handlers.go",
+      "caller_line": 485
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*encoding/json.Encoder).Encode",
+      "callee_pkg": "encoding/json",
+      "caller_file": "handlers.go",
+      "caller_line": 485
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.truncateString",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 485
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*net/http.Request).FormValue",
+      "callee_pkg": "net/http",
+      "caller_file": "handlers.go",
+      "caller_line": 485
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Info",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 485
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*golang.org/x/oauth2.Token).Extra",
+      "callee_pkg": "golang.org/x/oauth2",
+      "caller_file": "handlers.go",
+      "caller_line": 485
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*net/http.Request).ParseForm",
+      "callee_pkg": "net/http",
+      "caller_file": "handlers.go",
+      "caller_line": 485
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Error",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 485
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "encoding/json.NewEncoder",
+      "callee_pkg": "encoding/json",
+      "caller_file": "handlers.go",
+      "caller_line": 485
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "time.Until",
+      "callee_pkg": "time",
+      "caller_file": "handlers.go",
+      "caller_line": 485
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*golang.org/x/oauth2.Config).Exchange",
+      "callee_pkg": "golang.org/x/oauth2",
+      "caller_file": "handlers.go",
+      "caller_line": 485
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(net/http.Header).Set",
+      "callee_pkg": "net/http",
+      "caller_file": "handlers.go",
+      "caller_line": 485
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "context.WithValue",
+      "callee_pkg": "context",
+      "caller_file": "handlers.go",
+      "caller_line": 485
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).addSecurityHeaders",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(net/http.Header).Set",
+      "callee_pkg": "net/http",
+      "caller_file": "handlers.go",
+      "caller_line": 807
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).isValidRedirectURI",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "strings.TrimSpace",
+      "callee_pkg": "strings",
+      "caller_file": "handlers.go",
+      "caller_line": 772
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).isValidRedirectURI",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "strings.Split",
+      "callee_pkg": "strings",
+      "caller_file": "handlers.go",
+      "caller_line": 772
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).isValidRedirectURI",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Warn",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 772
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).showSuccessPage",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.truncateString",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 609
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).showSuccessPage",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Info",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 609
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).showSuccessPage",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(net/http.Header).Set",
+      "callee_pkg": "net/http",
+      "caller_file": "handlers.go",
+      "caller_line": 609
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).showSuccessPage",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Fprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "handlers.go",
+      "caller_line": 609
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).signState",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "encoding/hex.EncodeToString",
+      "callee_pkg": "encoding/hex",
+      "caller_file": "handlers.go",
+      "caller_line": 692
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).signState",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*encoding/base64.Encoding).EncodeToString",
+      "callee_pkg": "encoding/base64",
+      "caller_file": "handlers.go",
+      "caller_line": 692
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).signState",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "handlers.go",
+      "caller_line": 692
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).signState",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "encoding/json.Marshal",
+      "callee_pkg": "encoding/json",
+      "caller_file": "handlers.go",
+      "caller_line": 692
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).signState",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "crypto/hmac.New",
+      "callee_pkg": "crypto/hmac",
+      "caller_file": "handlers.go",
+      "caller_line": 692
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).validateOAuthParams",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "handlers.go",
+      "caller_line": 792
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).validateOAuthParams",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*net/http.Request).FormValue",
+      "callee_pkg": "net/http",
+      "caller_file": "handlers.go",
+      "caller_line": 792
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).verifyState",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "crypto/hmac.New",
+      "callee_pkg": "crypto/hmac",
+      "caller_file": "handlers.go",
+      "caller_line": 719
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).verifyState",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "crypto/hmac.Equal",
+      "callee_pkg": "crypto/hmac",
+      "caller_file": "handlers.go",
+      "caller_line": 719
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).verifyState",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*encoding/base64.Encoding).DecodeString",
+      "callee_pkg": "encoding/base64",
+      "caller_file": "handlers.go",
+      "caller_line": 719
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).verifyState",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "handlers.go",
+      "caller_line": 719
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).verifyState",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "encoding/json.Unmarshal",
+      "callee_pkg": "encoding/json",
+      "caller_file": "handlers.go",
+      "caller_line": 719
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).verifyState",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "encoding/hex.EncodeToString",
+      "callee_pkg": "encoding/hex",
+      "caller_file": "handlers.go",
+      "caller_line": 719
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetAllEndpoints",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetAuthorizeURL",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 178
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetAllEndpoints",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetTokenURL",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 178
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetAllEndpoints",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetOIDCDiscoveryURL",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 178
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetAllEndpoints",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetCallbackURL",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 178
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetAllEndpoints",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetProtectedResourceMetadataURL",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 178
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetAllEndpoints",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetAuthorizationServerMetadataURL",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 178
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetAllEndpoints",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetRegisterURL",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 178
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetAuthorizationServerMetadataURL",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "oauth.go",
+      "caller_line": 137
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetAuthorizeURL",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "oauth.go",
+      "caller_line": 157
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetCallbackURL",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "oauth.go",
+      "caller_line": 152
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetHTTPServerOptions",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.CreateHTTPContextFunc",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 239
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetHTTPServerOptions",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/mark3labs/mcp-go/server.WithHTTPContextFunc",
+      "callee_pkg": "github.com/mark3labs/mcp-go/server",
+      "caller_file": "oauth.go",
+      "caller_line": 239
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetOIDCDiscoveryURL",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "oauth.go",
+      "caller_line": 147
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetProtectedResourceMetadataURL",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "oauth.go",
+      "caller_line": 142
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetRegisterURL",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "oauth.go",
+      "caller_line": 167
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetStatusString",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "oauth.go",
+      "caller_line": 220
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetTokenURL",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "oauth.go",
+      "caller_line": 162
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).LogStartup",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetCallbackURL",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 199
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).LogStartup",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetProtectedResourceMetadataURL",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 199
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).LogStartup",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetOIDCDiscoveryURL",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 199
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).LogStartup",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetAuthorizationServerMetadataURL",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 199
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).LogStartup",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Info",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 199
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).LogStartup",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetAuthorizeURL",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 199
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).LogStartup",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetRegisterURL",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 199
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).LogStartup",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetTokenURL",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 199
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).RegisterHandlers",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*net/http.ServeMux).HandleFunc",
+      "callee_pkg": "net/http",
+      "caller_file": "oauth.go",
+      "caller_line": 92
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).Return401",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(net/http.Header).Set",
+      "callee_pkg": "net/http",
+      "caller_file": "oauth.go",
+      "caller_line": 377
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).Return401",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetProtectedResourceMetadataURL",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 377
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).Return401",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "oauth.go",
+      "caller_line": 377
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).Return401",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "encoding/json.NewEncoder",
+      "callee_pkg": "encoding/json",
+      "caller_file": "oauth.go",
+      "caller_line": 377
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).Return401",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*encoding/json.Encoder).Encode",
+      "callee_pkg": "encoding/json",
+      "caller_file": "oauth.go",
+      "caller_line": 377
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).Return401InvalidToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetProtectedResourceMetadataURL",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 399
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).Return401InvalidToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*encoding/json.Encoder).Encode",
+      "callee_pkg": "encoding/json",
+      "caller_file": "oauth.go",
+      "caller_line": 399
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).Return401InvalidToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "encoding/json.NewEncoder",
+      "callee_pkg": "encoding/json",
+      "caller_file": "oauth.go",
+      "caller_line": 399
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).Return401InvalidToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(net/http.Header).Set",
+      "callee_pkg": "net/http",
+      "caller_file": "oauth.go",
+      "caller_line": 399
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).Return401InvalidToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "oauth.go",
+      "caller_line": 399
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).ValidateTokenCached",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.TokenCache).setCachedToken",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 113
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).ValidateTokenCached",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy/provider.OIDCValidator).ValidateToken",
+      "callee_pkg": "provider",
+      "caller_file": "oauth.go",
+      "caller_line": 113
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).ValidateTokenCached",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy/provider.HMACValidator).ValidateToken",
+      "callee_pkg": "provider",
+      "caller_file": "oauth.go",
+      "caller_line": 113
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).ValidateTokenCached",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "oauth.go",
+      "caller_line": 113
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).ValidateTokenCached",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.TokenCache).getCachedToken",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 113
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).ValidateTokenCached",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Info",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 113
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).ValidateTokenCached",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(time.Time).Add",
+      "callee_pkg": "time",
+      "caller_file": "oauth.go",
+      "caller_line": 113
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).ValidateTokenCached",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "time.Now",
+      "callee_pkg": "time",
+      "caller_file": "oauth.go",
+      "caller_line": 113
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).ValidateTokenCached",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "oauth.go",
+      "caller_line": 113
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).ValidateTokenCached",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "crypto/sha256.Sum256",
+      "callee_pkg": "crypto/sha256",
+      "caller_file": "oauth.go",
+      "caller_line": 113
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).ValidateTokenCached",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Error",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 113
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.Server).WrapHandlerFunc",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).WrapHandler",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 312
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.TokenCache).deleteExpiredToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*sync.RWMutex).Lock",
+      "callee_pkg": "sync",
+      "caller_file": "cache.go",
+      "caller_line": 46
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.TokenCache).deleteExpiredToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(time.Time).After",
+      "callee_pkg": "time",
+      "caller_file": "cache.go",
+      "caller_line": 46
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.TokenCache).deleteExpiredToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "time.Now",
+      "callee_pkg": "time",
+      "caller_file": "cache.go",
+      "caller_line": 46
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.TokenCache).deleteExpiredToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*sync.RWMutex).Unlock",
+      "callee_pkg": "sync",
+      "caller_file": "cache.go",
+      "caller_line": 46
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.TokenCache).getCachedToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "time.Now",
+      "callee_pkg": "time",
+      "caller_file": "cache.go",
+      "caller_line": 26
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.TokenCache).getCachedToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*sync.RWMutex).RUnlock",
+      "callee_pkg": "sync",
+      "caller_file": "cache.go",
+      "caller_line": 26
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.TokenCache).getCachedToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.TokenCache).deleteExpiredToken",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "cache.go",
+      "caller_line": 26
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.TokenCache).getCachedToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*sync.RWMutex).RLock",
+      "callee_pkg": "sync",
+      "caller_file": "cache.go",
+      "caller_line": 26
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.TokenCache).getCachedToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(time.Time).After",
+      "callee_pkg": "time",
+      "caller_file": "cache.go",
+      "caller_line": 26
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.TokenCache).setCachedToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*sync.RWMutex).Lock",
+      "callee_pkg": "sync",
+      "caller_file": "cache.go",
+      "caller_line": 56
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.TokenCache).setCachedToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*sync.RWMutex).Unlock",
+      "callee_pkg": "sync",
+      "caller_file": "cache.go",
+      "caller_line": 56
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Debug",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "log.Printf",
+      "callee_pkg": "log",
+      "caller_file": "logger.go",
+      "caller_line": 32
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Error",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "log.Printf",
+      "callee_pkg": "log",
+      "caller_file": "logger.go",
+      "caller_line": 44
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Info",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "log.Printf",
+      "callee_pkg": "log",
+      "caller_file": "logger.go",
+      "caller_line": 36
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Warn",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "log.Printf",
+      "callee_pkg": "log",
+      "caller_file": "logger.go",
+      "caller_line": 40
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.pkceTransport).RoundTrip",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "io.ReadAll",
+      "callee_pkg": "io",
+      "caller_file": "handlers.go",
+      "caller_line": 648
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.pkceTransport).RoundTrip",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.pkceTransport).RoundTrip$1",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 648
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.pkceTransport).RoundTrip",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "strings.Contains",
+      "callee_pkg": "strings",
+      "caller_file": "handlers.go",
+      "caller_line": 648
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.pkceTransport).RoundTrip",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(net/url.Values).Encode",
+      "callee_pkg": "net/url",
+      "caller_file": "handlers.go",
+      "caller_line": 648
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.pkceTransport).RoundTrip",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "net/url.ParseQuery",
+      "callee_pkg": "net/url",
+      "caller_file": "handlers.go",
+      "caller_line": 648
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.pkceTransport).RoundTrip",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(net/url.Values).Get",
+      "callee_pkg": "net/url",
+      "caller_file": "handlers.go",
+      "caller_line": 648
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.pkceTransport).RoundTrip",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(net/url.Values).Set",
+      "callee_pkg": "net/url",
+      "caller_file": "handlers.go",
+      "caller_line": 648
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.pkceTransport).RoundTrip",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "io.NopCloser",
+      "callee_pkg": "io",
+      "caller_file": "handlers.go",
+      "caller_line": 648
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy.pkceTransport).RoundTrip",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "strings.NewReader",
+      "callee_pkg": "strings",
+      "caller_file": "handlers.go",
+      "caller_line": 648
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.AutoDetectServerURL",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "config.go",
+      "caller_line": 262
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.CreateHTTPContextFunc$1",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "strings.TrimSpace",
+      "callee_pkg": "strings",
+      "caller_file": "middleware.go",
+      "caller_line": 121
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.CreateHTTPContextFunc$1",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(net/http.Header).Get",
+      "callee_pkg": "net/http",
+      "caller_file": "middleware.go",
+      "caller_line": 121
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.CreateHTTPContextFunc$1",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "strings.ToLower",
+      "callee_pkg": "strings",
+      "caller_file": "middleware.go",
+      "caller_line": 121
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.CreateHTTPContextFunc$1",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "strings.HasPrefix",
+      "callee_pkg": "strings",
+      "caller_file": "middleware.go",
+      "caller_line": 121
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.CreateHTTPContextFunc$1",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.WithOAuthToken",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "middleware.go",
+      "caller_line": 121
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.CreateHTTPContextFunc$1",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "log.Printf",
+      "callee_pkg": "log",
+      "caller_file": "middleware.go",
+      "caller_line": 121
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.CreateOAuth2Handler",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.NewOAuth2ConfigFromConfig",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "config.go",
+      "caller_line": 147
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.CreateOAuth2Handler",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.NewOAuth2Handler",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "config.go",
+      "caller_line": 147
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.CreateRequestAuthHook$1",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "log.Printf",
+      "callee_pkg": "log",
+      "caller_file": "middleware.go",
+      "caller_line": 152
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.FromEnv",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).WithMode",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "config.go",
+      "caller_line": 271
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.FromEnv",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).WithServerURL",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "config.go",
+      "caller_line": 271
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.FromEnv",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).WithClientID",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "config.go",
+      "caller_line": 271
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.FromEnv",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).WithAudience",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "config.go",
+      "caller_line": 271
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.FromEnv",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).WithIssuer",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "config.go",
+      "caller_line": 271
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.FromEnv",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).WithRedirectURIs",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "config.go",
+      "caller_line": 271
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.FromEnv",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).WithProvider",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "config.go",
+      "caller_line": 271
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.FromEnv",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).WithClientSecret",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "config.go",
+      "caller_line": 271
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.FromEnv",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.getEnv",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "config.go",
+      "caller_line": 271
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.FromEnv",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).Build",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "config.go",
+      "caller_line": 271
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.FromEnv",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.ConfigBuilder).WithJWTSecret",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "config.go",
+      "caller_line": 271
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.FromEnv",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.NewConfigBuilder",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "config.go",
+      "caller_line": 271
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.FromEnv",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.AutoDetectServerURL",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "config.go",
+      "caller_line": 271
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.NewOAuth2ConfigFromConfig",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Sprintf",
+      "callee_pkg": "fmt",
+      "caller_file": "handlers.go",
+      "caller_line": 164
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.NewOAuth2ConfigFromConfig",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.getEnv",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 164
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.NewOAuth2Handler",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Info",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 66
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.NewOAuth2Handler",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "crypto/rand.Read",
+      "callee_pkg": "crypto/rand",
+      "caller_file": "handlers.go",
+      "caller_line": 66
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.NewOAuth2Handler",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Warn",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 66
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.NewOAuth2Handler",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Error",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 66
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.NewOAuth2Handler",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.discoverOIDCEndpoints",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "handlers.go",
+      "caller_line": 66
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.NewServer",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.CreateOAuth2Handler",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 44
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.NewServer",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.createValidator",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 44
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.NewServer",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "oauth.go",
+      "caller_line": 44
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.NewServer",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Config).Validate",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 44
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.OAuthMiddleware",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).Middleware",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "middleware.go",
+      "caller_line": 86
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.SetupOAuth",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.createValidator",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "config.go",
+      "caller_line": 102
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.SetupOAuth",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "config.go",
+      "caller_line": 102
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.SetupOAuth",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Info",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "config.go",
+      "caller_line": 102
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.WithOAuth",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "oauth.go",
+      "caller_line": 438
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.WithOAuth",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.NewServer",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 438
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.WithOAuth",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/mark3labs/mcp-go/server.WithToolHandlerMiddleware",
+      "callee_pkg": "github.com/mark3labs/mcp-go/server",
+      "caller_file": "oauth.go",
+      "caller_line": 438
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.WithOAuth",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).Middleware",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 438
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.WithOAuth",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).RegisterHandlers",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "oauth.go",
+      "caller_line": 438
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.WithOAuthToken",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "context.WithValue",
+      "callee_pkg": "context",
+      "caller_file": "context.go",
+      "caller_line": 14
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.WithUser",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "context.WithValue",
+      "callee_pkg": "context",
+      "caller_file": "context.go",
+      "caller_line": 25
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.createValidator",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy/provider.OIDCValidator).Initialize",
+      "callee_pkg": "provider",
+      "caller_file": "config.go",
+      "caller_line": 119
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.createValidator",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy/provider.HMACValidator).Initialize",
+      "callee_pkg": "provider",
+      "caller_file": "config.go",
+      "caller_line": 119
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.createValidator",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "config.go",
+      "caller_line": 119
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.discoverOIDCEndpoints",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/coreos/go-oidc/v3/oidc.NewProvider",
+      "callee_pkg": "github.com/coreos/go-oidc/v3/oidc",
+      "caller_file": "handlers.go",
+      "caller_line": 131
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.discoverOIDCEndpoints",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/coreos/go-oidc/v3/oidc.ClientContext",
+      "callee_pkg": "github.com/coreos/go-oidc/v3/oidc",
+      "caller_file": "handlers.go",
+      "caller_line": 131
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.discoverOIDCEndpoints",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "context.WithTimeout",
+      "callee_pkg": "context",
+      "caller_file": "handlers.go",
+      "caller_line": 131
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.discoverOIDCEndpoints",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "context.Background",
+      "callee_pkg": "context",
+      "caller_file": "handlers.go",
+      "caller_line": 131
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.discoverOIDCEndpoints",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "handlers.go",
+      "caller_line": 131
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.discoverOIDCEndpoints",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*github.com/coreos/go-oidc/v3/oidc.Provider).Endpoint",
+      "callee_pkg": "github.com/coreos/go-oidc/v3/oidc",
+      "caller_file": "handlers.go",
+      "caller_line": 131
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.getEnv",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "os.LookupEnv",
+      "callee_pkg": "os",
+      "caller_file": "handlers.go",
+      "caller_line": 684
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.init",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "fmt.init",
+      "callee_pkg": "fmt"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.init",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/Vungle/oauth-mcp-proxy/provider.init",
+      "callee_pkg": "provider"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.init",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "encoding/base64.init",
+      "callee_pkg": "encoding/base64"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.init",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "encoding/hex.init",
+      "callee_pkg": "encoding/hex"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.init",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "encoding/json.init",
+      "callee_pkg": "encoding/json"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.init",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "io.init",
+      "callee_pkg": "io"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.init",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/mark3labs/mcp-go/server.init",
+      "callee_pkg": "github.com/mark3labs/mcp-go/server"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.init",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "time.init",
+      "callee_pkg": "time"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.init",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/mark3labs/mcp-go/mcp.init",
+      "callee_pkg": "github.com/mark3labs/mcp-go/mcp"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.init",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "golang.org/x/oauth2.init",
+      "callee_pkg": "golang.org/x/oauth2"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.init",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "github.com/coreos/go-oidc/v3/oidc.init",
+      "callee_pkg": "github.com/coreos/go-oidc/v3/oidc"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.init",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "strings.init",
+      "callee_pkg": "strings"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.init",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "os.init",
+      "callee_pkg": "os"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.init",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "log.init",
+      "callee_pkg": "log"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.init",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "net/http.init",
+      "callee_pkg": "net/http"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.init",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "net/url.init",
+      "callee_pkg": "net/url"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.init",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "crypto/tls.init",
+      "callee_pkg": "crypto/tls"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.init",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "sync.init",
+      "callee_pkg": "sync"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.init",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "crypto/sha256.init",
+      "callee_pkg": "crypto/sha256"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.init",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "context.init",
+      "callee_pkg": "context"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.init",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "crypto/hmac.init",
+      "callee_pkg": "crypto/hmac"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.init",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "crypto/rand.init",
+      "callee_pkg": "crypto/rand"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.isLocalhostURI",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "(*net/url.URL).Hostname",
+      "callee_pkg": "net/url",
+      "caller_file": "handlers.go",
+      "caller_line": 761
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.isLocalhostURI",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "strings.ToLower",
+      "callee_pkg": "strings",
+      "caller_file": "handlers.go",
+      "caller_line": 761
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy.isLocalhostURI",
+      "caller_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "callee": "net/url.Parse",
+      "callee_pkg": "net/url",
+      "caller_file": "handlers.go",
+      "caller_line": 761
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mark3labs.WithOAuth",
+      "caller_pkg": "mark3labs",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).RegisterHandlers",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "mark3labs/oauth.go",
+      "caller_line": 43
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mark3labs.WithOAuth",
+      "caller_pkg": "mark3labs",
+      "callee": "github.com/Vungle/oauth-mcp-proxy/mark3labs.NewMiddleware",
+      "callee_pkg": "mark3labs",
+      "caller_file": "mark3labs/oauth.go",
+      "caller_line": 43
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mark3labs.WithOAuth",
+      "caller_pkg": "mark3labs",
+      "callee": "github.com/mark3labs/mcp-go/server.WithToolHandlerMiddleware",
+      "callee_pkg": "github.com/mark3labs/mcp-go/server",
+      "caller_file": "mark3labs/oauth.go",
+      "caller_line": 43
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mark3labs.WithOAuth",
+      "caller_pkg": "mark3labs",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "mark3labs/oauth.go",
+      "caller_line": 43
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mark3labs.WithOAuth",
+      "caller_pkg": "mark3labs",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.NewServer",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "mark3labs/oauth.go",
+      "caller_line": 43
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mark3labs.init",
+      "caller_pkg": "mark3labs",
+      "callee": "net/http.init",
+      "callee_pkg": "net/http"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mark3labs.init",
+      "caller_pkg": "mark3labs",
+      "callee": "github.com/mark3labs/mcp-go/mcp.init",
+      "callee_pkg": "github.com/mark3labs/mcp-go/mcp"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mark3labs.init",
+      "caller_pkg": "mark3labs",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.init",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mark3labs.init",
+      "caller_pkg": "mark3labs",
+      "callee": "fmt.init",
+      "callee_pkg": "fmt"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mark3labs.init",
+      "caller_pkg": "mark3labs",
+      "callee": "github.com/mark3labs/mcp-go/server.init",
+      "callee_pkg": "github.com/mark3labs/mcp-go/server"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mark3labs.init",
+      "caller_pkg": "mark3labs",
+      "callee": "context.init",
+      "callee_pkg": "context"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mcp.WithOAuth",
+      "caller_pkg": "mcp",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).RegisterHandlers",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "mcp/oauth.go",
+      "caller_line": 49
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mcp.WithOAuth",
+      "caller_pkg": "mcp",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.NewServer",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "mcp/oauth.go",
+      "caller_line": 49
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mcp.WithOAuth",
+      "caller_pkg": "mcp",
+      "callee": "github.com/modelcontextprotocol/go-sdk/mcp.NewStreamableHTTPHandler",
+      "callee_pkg": "github.com/modelcontextprotocol/go-sdk/mcp",
+      "caller_file": "mcp/oauth.go",
+      "caller_line": 49
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mcp.WithOAuth",
+      "caller_pkg": "mcp",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "mcp/oauth.go",
+      "caller_line": 49
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mcp.WithOAuth$2",
+      "caller_pkg": "mcp",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).ValidateTokenCached",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "mcp/oauth.go",
+      "caller_line": 61
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mcp.WithOAuth$2",
+      "caller_pkg": "mcp",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.WithUser",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "mcp/oauth.go",
+      "caller_line": 61
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mcp.WithOAuth$2",
+      "caller_pkg": "mcp",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.WithOAuthToken",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "mcp/oauth.go",
+      "caller_line": 61
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mcp.WithOAuth$2",
+      "caller_pkg": "mcp",
+      "callee": "(*net/http.Request).WithContext",
+      "callee_pkg": "net/http",
+      "caller_file": "mcp/oauth.go",
+      "caller_line": 61
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mcp.WithOAuth$2",
+      "caller_pkg": "mcp",
+      "callee": "(*net/http.Request).Context",
+      "callee_pkg": "net/http",
+      "caller_file": "mcp/oauth.go",
+      "caller_line": 61
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mcp.WithOAuth$2",
+      "caller_pkg": "mcp",
+      "callee": "strings.TrimSpace",
+      "callee_pkg": "strings",
+      "caller_file": "mcp/oauth.go",
+      "caller_line": 61
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mcp.WithOAuth$2",
+      "caller_pkg": "mcp",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).Return401InvalidToken",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "mcp/oauth.go",
+      "caller_line": 61
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mcp.WithOAuth$2",
+      "caller_pkg": "mcp",
+      "callee": "strings.HasPrefix",
+      "callee_pkg": "strings",
+      "caller_file": "mcp/oauth.go",
+      "caller_line": 61
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mcp.WithOAuth$2",
+      "caller_pkg": "mcp",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.Server).Return401",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "mcp/oauth.go",
+      "caller_line": 61
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mcp.WithOAuth$2",
+      "caller_pkg": "mcp",
+      "callee": "strings.ToLower",
+      "callee_pkg": "strings",
+      "caller_file": "mcp/oauth.go",
+      "caller_line": 61
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mcp.WithOAuth$2",
+      "caller_pkg": "mcp",
+      "callee": "(net/http.Header).Get",
+      "callee_pkg": "net/http",
+      "caller_file": "mcp/oauth.go",
+      "caller_line": 61
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mcp.WithOAuth$2",
+      "caller_pkg": "mcp",
+      "callee": "(*github.com/modelcontextprotocol/go-sdk/mcp.StreamableHTTPHandler).ServeHTTP",
+      "callee_pkg": "github.com/modelcontextprotocol/go-sdk/mcp",
+      "caller_file": "mcp/oauth.go",
+      "caller_line": 61
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mcp.init",
+      "caller_pkg": "mcp",
+      "callee": "net/http.init",
+      "callee_pkg": "net/http"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mcp.init",
+      "caller_pkg": "mcp",
+      "callee": "github.com/modelcontextprotocol/go-sdk/mcp.init",
+      "callee_pkg": "github.com/modelcontextprotocol/go-sdk/mcp"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mcp.init",
+      "caller_pkg": "mcp",
+      "callee": "github.com/Vungle/oauth-mcp-proxy.init",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mcp.init",
+      "caller_pkg": "mcp",
+      "callee": "strings.init",
+      "callee_pkg": "strings"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/mcp.init",
+      "caller_pkg": "mcp",
+      "callee": "fmt.init",
+      "callee_pkg": "fmt"
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy/provider.HMACValidator).Initialize",
+      "caller_pkg": "provider",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "provider/provider.go",
+      "caller_line": 62
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy/provider.HMACValidator).Initialize",
+      "caller_pkg": "provider",
+      "callee": "(*sync.Once).Do",
+      "callee_pkg": "sync",
+      "caller_file": "provider/provider.go",
+      "caller_line": 62
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy/provider.HMACValidator).ValidateToken",
+      "caller_pkg": "provider",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy/provider.HMACValidator).validateAudience",
+      "callee_pkg": "provider",
+      "caller_file": "provider/provider.go",
+      "caller_line": 80
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy/provider.HMACValidator).ValidateToken",
+      "caller_pkg": "provider",
+      "callee": "github.com/golang-jwt/jwt/v5.Parse",
+      "callee_pkg": "github.com/golang-jwt/jwt/v5",
+      "caller_file": "provider/provider.go",
+      "caller_line": 80
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy/provider.HMACValidator).ValidateToken",
+      "caller_pkg": "provider",
+      "callee": "github.com/Vungle/oauth-mcp-proxy/provider.getStringClaim",
+      "callee_pkg": "provider",
+      "caller_file": "provider/provider.go",
+      "caller_line": 80
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy/provider.HMACValidator).ValidateToken",
+      "caller_pkg": "provider",
+      "callee": "strings.TrimPrefix",
+      "callee_pkg": "strings",
+      "caller_file": "provider/provider.go",
+      "caller_line": 80
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy/provider.HMACValidator).ValidateToken",
+      "caller_pkg": "provider",
+      "callee": "github.com/Vungle/oauth-mcp-proxy/provider.validateTokenClaims",
+      "callee_pkg": "provider",
+      "caller_file": "provider/provider.go",
+      "caller_line": 80
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy/provider.HMACValidator).ValidateToken",
+      "caller_pkg": "provider",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "provider/provider.go",
+      "caller_line": 80
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy/provider.HMACValidator).validateAudience",
+      "caller_pkg": "provider",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "provider/provider.go",
+      "caller_line": 132
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy/provider.OIDCValidator).Initialize",
+      "caller_pkg": "provider",
+      "callee": "(*github.com/coreos/go-oidc/v3/oidc.Provider).Verifier",
+      "callee_pkg": "github.com/coreos/go-oidc/v3/oidc",
+      "caller_file": "provider/provider.go",
+      "caller_line": 161
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy/provider.OIDCValidator).Initialize",
+      "caller_pkg": "provider",
+      "callee": "github.com/coreos/go-oidc/v3/oidc.ClientContext",
+      "callee_pkg": "github.com/coreos/go-oidc/v3/oidc",
+      "caller_file": "provider/provider.go",
+      "caller_line": 161
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy/provider.OIDCValidator).Initialize",
+      "caller_pkg": "provider",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy/provider.noOpLogger).Info",
+      "callee_pkg": "provider",
+      "caller_file": "provider/provider.go",
+      "caller_line": 161
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy/provider.OIDCValidator).Initialize",
+      "caller_pkg": "provider",
+      "callee": "github.com/coreos/go-oidc/v3/oidc.NewProvider",
+      "callee_pkg": "github.com/coreos/go-oidc/v3/oidc",
+      "caller_file": "provider/provider.go",
+      "caller_line": 161
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy/provider.OIDCValidator).Initialize",
+      "caller_pkg": "provider",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Info",
+      "callee_pkg": "github.com/Vungle/oauth-mcp-proxy",
+      "caller_file": "provider/provider.go",
+      "caller_line": 161
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy/provider.OIDCValidator).Initialize",
+      "caller_pkg": "provider",
+      "callee": "context.WithTimeout",
+      "callee_pkg": "context",
+      "caller_file": "provider/provider.go",
+      "caller_line": 161
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy/provider.OIDCValidator).Initialize",
+      "caller_pkg": "provider",
+      "callee": "context.Background",
+      "callee_pkg": "context",
+      "caller_file": "provider/provider.go",
+      "caller_line": 161
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy/provider.OIDCValidator).Initialize",
+      "caller_pkg": "provider",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "provider/provider.go",
+      "caller_line": 161
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy/provider.OIDCValidator).ValidateToken",
+      "caller_pkg": "provider",
+      "callee": "(*github.com/coreos/go-oidc/v3/oidc.IDTokenVerifier).Verify",
+      "callee_pkg": "github.com/coreos/go-oidc/v3/oidc",
+      "caller_file": "provider/provider.go",
+      "caller_line": 220
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy/provider.OIDCValidator).ValidateToken",
+      "caller_pkg": "provider",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "provider/provider.go",
+      "caller_line": 220
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy/provider.OIDCValidator).ValidateToken",
+      "caller_pkg": "provider",
+      "callee": "(*github.com/Vungle/oauth-mcp-proxy/provider.OIDCValidator).validateAudience",
+      "callee_pkg": "provider",
+      "caller_file": "provider/provider.go",
+      "caller_line": 220
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy/provider.OIDCValidator).ValidateToken",
+      "caller_pkg": "provider",
+      "callee": "(*github.com/coreos/go-oidc/v3/oidc.IDToken).Claims",
+      "callee_pkg": "github.com/coreos/go-oidc/v3/oidc",
+      "caller_file": "provider/provider.go",
+      "caller_line": 220
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy/provider.OIDCValidator).ValidateToken",
+      "caller_pkg": "provider",
+      "callee": "context.WithTimeout",
+      "callee_pkg": "context",
+      "caller_file": "provider/provider.go",
+      "caller_line": 220
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy/provider.OIDCValidator).ValidateToken",
+      "caller_pkg": "provider",
+      "callee": "strings.TrimPrefix",
+      "callee_pkg": "strings",
+      "caller_file": "provider/provider.go",
+      "caller_line": 220
+    },
+    {
+      "caller": "(*github.com/Vungle/oauth-mcp-proxy/provider.OIDCValidator).validateAudience",
+      "caller_pkg": "provider",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "provider/provider.go",
+      "caller_line": 272
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/provider.init",
+      "caller_pkg": "provider",
+      "callee": "github.com/golang-jwt/jwt/v5.init",
+      "callee_pkg": "github.com/golang-jwt/jwt/v5"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/provider.init",
+      "caller_pkg": "provider",
+      "callee": "net/http.init",
+      "callee_pkg": "net/http"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/provider.init",
+      "caller_pkg": "provider",
+      "callee": "fmt.init",
+      "callee_pkg": "fmt"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/provider.init",
+      "caller_pkg": "provider",
+      "callee": "strings.init",
+      "callee_pkg": "strings"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/provider.init",
+      "caller_pkg": "provider",
+      "callee": "context.init",
+      "callee_pkg": "context"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/provider.init",
+      "caller_pkg": "provider",
+      "callee": "crypto/tls.init",
+      "callee_pkg": "crypto/tls"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/provider.init",
+      "caller_pkg": "provider",
+      "callee": "sync.init",
+      "callee_pkg": "sync"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/provider.init",
+      "caller_pkg": "provider",
+      "callee": "time.init",
+      "callee_pkg": "time"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/provider.init",
+      "caller_pkg": "provider",
+      "callee": "github.com/coreos/go-oidc/v3/oidc.init",
+      "callee_pkg": "github.com/coreos/go-oidc/v3/oidc"
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/provider.validateTokenClaims",
+      "caller_pkg": "provider",
+      "callee": "(time.Time).Unix",
+      "callee_pkg": "time",
+      "caller_file": "provider/provider.go",
+      "caller_line": 301
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/provider.validateTokenClaims",
+      "caller_pkg": "provider",
+      "callee": "fmt.Errorf",
+      "callee_pkg": "fmt",
+      "caller_file": "provider/provider.go",
+      "caller_line": 301
+    },
+    {
+      "caller": "github.com/Vungle/oauth-mcp-proxy/provider.validateTokenClaims",
+      "caller_pkg": "provider",
+      "callee": "time.Now",
+      "callee_pkg": "time",
+      "caller_file": "provider/provider.go",
+      "caller_line": 301
+    }
+  ],
+  "entry_points": [
+    {
+      "name": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main",
+      "package": "examples/mark3labs/advanced",
+      "file": "examples/mark3labs/advanced/main.go",
+      "line": 16,
+      "callers": 0,
+      "callees": 27
+    },
+    {
+      "name": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main",
+      "package": "examples/official/advanced",
+      "file": "examples/official/advanced/main.go",
+      "line": 16,
+      "callers": 0,
+      "callees": 25
+    },
+    {
+      "name": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorize",
+      "package": "github.com/Vungle/oauth-mcp-proxy",
+      "file": "handlers.go",
+      "line": 268,
+      "callers": 0,
+      "callees": 18
+    },
+    {
+      "name": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleToken",
+      "package": "github.com/Vungle/oauth-mcp-proxy",
+      "file": "handlers.go",
+      "line": 485,
+      "callers": 0,
+      "callees": 17
+    },
+    {
+      "name": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.main",
+      "package": "examples/mark3labs/simple",
+      "file": "examples/mark3labs/simple/main.go",
+      "line": 16,
+      "callers": 0,
+      "callees": 16
+    },
+    {
+      "name": "github.com/Vungle/oauth-mcp-proxy.FromEnv",
+      "package": "github.com/Vungle/oauth-mcp-proxy",
+      "file": "config.go",
+      "line": 271,
+      "callers": 0,
+      "callees": 13
+    },
+    {
+      "name": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleCallback",
+      "package": "github.com/Vungle/oauth-mcp-proxy",
+      "file": "handlers.go",
+      "line": 410,
+      "callers": 0,
+      "callees": 13
+    },
+    {
+      "name": "github.com/Vungle/oauth-mcp-proxy/mcp.WithOAuth$2",
+      "package": "mcp",
+      "file": "mcp/oauth.go",
+      "line": 61,
+      "callers": 0,
+      "callees": 12
+    },
+    {
+      "name": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleRegister",
+      "package": "github.com/Vungle/oauth-mcp-proxy",
+      "file": "metadata.go",
+      "line": 152,
+      "callers": 0,
+      "callees": 12
+    },
+    {
+      "name": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.main",
+      "package": "examples/official/simple",
+      "file": "examples/official/simple/main.go",
+      "line": 15,
+      "callers": 0,
+      "callees": 11
+    },
+    {
+      "name": "(*github.com/Vungle/oauth-mcp-proxy.pkceTransport).RoundTrip",
+      "package": "github.com/Vungle/oauth-mcp-proxy",
+      "file": "handlers.go",
+      "line": 648,
+      "callers": 0,
+      "callees": 9
+    },
+    {
+      "name": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.init",
+      "package": "examples/official/advanced",
+      "callers": 0,
+      "callees": 9
+    },
+    {
+      "name": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.init",
+      "package": "examples/mark3labs/simple",
+      "callers": 0,
+      "callees": 9
+    },
+    {
+      "name": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.init",
+      "package": "examples/mark3labs/advanced",
+      "callers": 0,
+      "callees": 9
+    },
+    {
+      "name": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleJWKS",
+      "package": "github.com/Vungle/oauth-mcp-proxy",
+      "file": "handlers.go",
+      "line": 199,
+      "callers": 0,
+      "callees": 8
+    },
+    {
+      "name": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.init",
+      "package": "examples/official/simple",
+      "callers": 0,
+      "callees": 8
+    },
+    {
+      "name": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleOIDCDiscovery",
+      "package": "github.com/Vungle/oauth-mcp-proxy",
+      "file": "metadata.go",
+      "line": 222,
+      "callers": 0,
+      "callees": 7
+    },
+    {
+      "name": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleMetadata",
+      "package": "github.com/Vungle/oauth-mcp-proxy",
+      "file": "metadata.go",
+      "line": 12,
+      "callers": 0,
+      "callees": 7
+    },
+    {
+      "name": "github.com/Vungle/oauth-mcp-proxy.CreateHTTPContextFunc$1",
+      "package": "github.com/Vungle/oauth-mcp-proxy",
+      "file": "middleware.go",
+      "line": 121,
+      "callers": 0,
+      "callees": 6
+    },
+    {
+      "name": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main$3",
+      "package": "examples/official/advanced",
+      "file": "examples/official/advanced/main.go",
+      "line": 91,
+      "callers": 0,
+      "callees": 6
+    },
+    {
+      "name": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleAuthorizationServerMetadata",
+      "package": "github.com/Vungle/oauth-mcp-proxy",
+      "file": "metadata.go",
+      "line": 81,
+      "callers": 0,
+      "callees": 6
+    },
+    {
+      "name": "(*github.com/Vungle/oauth-mcp-proxy.OAuth2Handler).HandleProtectedResourceMetadata",
+      "package": "github.com/Vungle/oauth-mcp-proxy",
+      "file": "metadata.go",
+      "line": 113,
+      "callers": 0,
+      "callees": 6
+    },
+    {
+      "name": "github.com/Vungle/oauth-mcp-proxy.WithOAuth",
+      "package": "github.com/Vungle/oauth-mcp-proxy",
+      "file": "oauth.go",
+      "line": 438,
+      "callers": 0,
+      "callees": 5
+    },
+    {
+      "name": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main$1",
+      "package": "examples/official/advanced",
+      "file": "examples/official/advanced/main.go",
+      "line": 45,
+      "callers": 0,
+      "callees": 4
+    },
+    {
+      "name": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main$3",
+      "package": "examples/mark3labs/advanced",
+      "file": "examples/mark3labs/advanced/main.go",
+      "line": 85,
+      "callers": 0,
+      "callees": 4
+    },
+    {
+      "name": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/advanced.main$2",
+      "package": "examples/mark3labs/advanced",
+      "file": "examples/mark3labs/advanced/main.go",
+      "line": 70,
+      "callers": 0,
+      "callees": 4
+    },
+    {
+      "name": "github.com/Vungle/oauth-mcp-proxy/examples/mark3labs/simple.main$1",
+      "package": "examples/mark3labs/simple",
+      "file": "examples/mark3labs/simple/main.go",
+      "line": 44,
+      "callers": 0,
+      "callees": 4
+    },
+    {
+      "name": "github.com/Vungle/oauth-mcp-proxy/examples/official/advanced.main$2",
+      "package": "examples/official/advanced",
+      "file": "examples/official/advanced/main.go",
+      "line": 66,
+      "callers": 0,
+      "callees": 4
+    },
+    {
+      "name": "github.com/Vungle/oauth-mcp-proxy.SetupOAuth",
+      "package": "github.com/Vungle/oauth-mcp-proxy",
+      "file": "config.go",
+      "line": 102,
+      "callers": 0,
+      "callees": 3
+    },
+    {
+      "name": "github.com/Vungle/oauth-mcp-proxy/examples/official/simple.main$1",
+      "package": "examples/official/simple",
+      "file": "examples/official/simple/main.go",
+      "line": 31,
+      "callers": 0,
+      "callees": 3
+    }
+  ],
+  "most_called": [
+    {
+      "name": "fmt.Sprintf",
+      "package": "fmt",
+      "file": "../../../../../../opt/homebrew/Cellar/go/1.26.0/libexec/src/fmt/print.go",
+      "line": 237,
+      "callers": 29,
+      "callees": 0
+    },
+    {
+      "name": "fmt.Errorf",
+      "package": "fmt",
+      "file": "../../../../../../opt/homebrew/Cellar/go/1.26.0/libexec/src/fmt/errors.go",
+      "line": 23,
+      "callers": 25,
+      "callees": 0
+    },
+    {
+      "name": "log.Printf",
+      "package": "log",
+      "file": "../../../../../../opt/homebrew/Cellar/go/1.26.0/libexec/src/log/log.go",
+      "line": 407,
+      "callers": 13,
+      "callees": 0
+    },
+    {
+      "name": "(net/http.Header).Set",
+      "package": "net/http",
+      "file": "../../../../../../opt/homebrew/Cellar/go/1.26.0/libexec/src/net/http/header.go",
+      "line": 39,
+      "callers": 13,
+      "callees": 0
+    },
+    {
+      "name": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Info",
+      "package": "github.com/Vungle/oauth-mcp-proxy",
+      "file": "logger.go",
+      "line": 36,
+      "callers": 11,
+      "callees": 1
+    },
+    {
+      "name": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Error",
+      "package": "github.com/Vungle/oauth-mcp-proxy",
+      "file": "logger.go",
+      "line": 44,
+      "callers": 11,
+      "callees": 1
+    },
+    {
+      "name": "net/http.Error",
+      "package": "net/http",
+      "file": "../../../../../../opt/homebrew/Cellar/go/1.26.0/libexec/src/net/http/server.go",
+      "line": 2301,
+      "callers": 9,
+      "callees": 0
+    },
+    {
+      "name": "encoding/json.NewEncoder",
+      "package": "encoding/json",
+      "file": "../../../../../../opt/homebrew/Cellar/go/1.26.0/libexec/src/encoding/json/stream.go",
+      "line": 194,
+      "callers": 8,
+      "callees": 0
+    },
+    {
+      "name": "(*encoding/json.Encoder).Encode",
+      "package": "encoding/json",
+      "file": "../../../../../../opt/homebrew/Cellar/go/1.26.0/libexec/src/encoding/json/stream.go",
+      "line": 204,
+      "callers": 8,
+      "callees": 0
+    },
+    {
+      "name": "fmt.init",
+      "package": "fmt",
+      "callers": 8,
+      "callees": 0
+    },
+    {
+      "name": "net/http.init",
+      "package": "net/http",
+      "callers": 8,
+      "callees": 0
+    },
+    {
+      "name": "context.init",
+      "package": "context",
+      "callers": 7,
+      "callees": 0
+    },
+    {
+      "name": "strings.TrimSpace",
+      "package": "strings",
+      "file": "../../../../../../opt/homebrew/Cellar/go/1.26.0/libexec/src/strings/strings.go",
+      "line": 1091,
+      "callers": 6,
+      "callees": 0
+    },
+    {
+      "name": "github.com/Vungle/oauth-mcp-proxy.init",
+      "package": "github.com/Vungle/oauth-mcp-proxy",
+      "callers": 6,
+      "callees": 22
+    },
+    {
+      "name": "time.Now",
+      "package": "time",
+      "file": "../../../../../../opt/homebrew/Cellar/go/1.26.0/libexec/src/time/time.go",
+      "line": 1347,
+      "callers": 6,
+      "callees": 0
+    },
+    {
+      "name": "github.com/Vungle/oauth-mcp-proxy.GetUserFromContext",
+      "package": "github.com/Vungle/oauth-mcp-proxy",
+      "file": "context.go",
+      "line": 42,
+      "callers": 6,
+      "callees": 0
+    },
+    {
+      "name": "strings.Contains",
+      "package": "strings",
+      "file": "../../../../../../opt/homebrew/Cellar/go/1.26.0/libexec/src/strings/strings.go",
+      "line": 62,
+      "callers": 5,
+      "callees": 0
+    },
+    {
+      "name": "os.init",
+      "package": "os",
+      "callers": 5,
+      "callees": 0
+    },
+    {
+      "name": "log.init",
+      "package": "log",
+      "callers": 5,
+      "callees": 0
+    },
+    {
+      "name": "net/http.NewServeMux",
+      "package": "net/http",
+      "file": "../../../../../../opt/homebrew/Cellar/go/1.26.0/libexec/src/net/http/server.go",
+      "line": 2583,
+      "callers": 4,
+      "callees": 0
+    },
+    {
+      "name": "(*github.com/Vungle/oauth-mcp-proxy.Server).GetProtectedResourceMetadataURL",
+      "package": "github.com/Vungle/oauth-mcp-proxy",
+      "file": "oauth.go",
+      "line": 142,
+      "callers": 4,
+      "callees": 1
+    },
+    {
+      "name": "net/http.ListenAndServe",
+      "package": "net/http",
+      "file": "../../../../../../opt/homebrew/Cellar/go/1.26.0/libexec/src/net/http/server.go",
+      "line": 3673,
+      "callers": 4,
+      "callees": 0
+    },
+    {
+      "name": "github.com/Vungle/oauth-mcp-proxy.truncateString",
+      "package": "github.com/Vungle/oauth-mcp-proxy",
+      "file": "handlers.go",
+      "line": 634,
+      "callers": 4,
+      "callees": 0
+    },
+    {
+      "name": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Warn",
+      "package": "github.com/Vungle/oauth-mcp-proxy",
+      "file": "logger.go",
+      "line": 40,
+      "callers": 4,
+      "callees": 1
+    },
+    {
+      "name": "log.Fatalf",
+      "package": "log",
+      "file": "../../../../../../opt/homebrew/Cellar/go/1.26.0/libexec/src/log/log.go",
+      "line": 430,
+      "callers": 4,
+      "callees": 0
+    },
+    {
+      "name": "github.com/mark3labs/mcp-go/mcp.init",
+      "package": "github.com/mark3labs/mcp-go/mcp",
+      "callers": 4,
+      "callees": 0
+    },
+    {
+      "name": "github.com/mark3labs/mcp-go/server.init",
+      "package": "github.com/mark3labs/mcp-go/server",
+      "callers": 4,
+      "callees": 0
+    },
+    {
+      "name": "log.Println",
+      "package": "log",
+      "file": "../../../../../../opt/homebrew/Cellar/go/1.26.0/libexec/src/log/log.go",
+      "line": 415,
+      "callers": 3,
+      "callees": 0
+    },
+    {
+      "name": "github.com/Vungle/oauth-mcp-proxy.NewServer",
+      "package": "github.com/Vungle/oauth-mcp-proxy",
+      "file": "oauth.go",
+      "line": 44,
+      "callers": 3,
+      "callees": 4
+    },
+    {
+      "name": "(*net/http.ServeMux).HandleFunc",
+      "package": "net/http",
+      "file": "../../../../../../opt/homebrew/Cellar/go/1.26.0/libexec/src/net/http/server.go",
+      "line": 2852,
+      "callers": 3,
+      "callees": 0
+    }
+  ],
+  "dead_code": null,
+  "package_stats": {
+    "examples/mark3labs/advanced": {
+      "functions": 0,
+      "internal_edges": 2,
+      "incoming_edges": 0,
+      "outgoing_edges": 18
+    },
+    "examples/mark3labs/simple": {
+      "functions": 0,
+      "internal_edges": 1,
+      "incoming_edges": 0,
+      "outgoing_edges": 6
+    },
+    "examples/official/advanced": {
+      "functions": 0,
+      "internal_edges": 1,
+      "incoming_edges": 0,
+      "outgoing_edges": 18
+    },
+    "examples/official/simple": {
+      "functions": 0,
+      "internal_edges": 1,
+      "incoming_edges": 0,
+      "outgoing_edges": 5
+    },
+    "github.com/Vungle/oauth-mcp-proxy": {
+      "functions": 0,
+      "internal_edges": 87,
+      "incoming_edges": 51,
+      "outgoing_edges": 5
+    },
+    "mark3labs": {
+      "functions": 0,
+      "internal_edges": 1,
+      "incoming_edges": 4,
+      "outgoing_edges": 3
+    },
+    "mcp": {
+      "functions": 0,
+      "internal_edges": 0,
+      "incoming_edges": 4,
+      "outgoing_edges": 8
+    },
+    "provider": {
+      "functions": 0,
+      "internal_edges": 5,
+      "incoming_edges": 5,
+      "outgoing_edges": 1
+    }
+  }
+}
