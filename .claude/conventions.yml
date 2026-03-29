@@ -56,11 +56,8 @@ security:
     - "OIDC requires TLS 1.2+ (MinVersion: tls.VersionTLS12)"
 
 testing:
-  description: "Table-driven tests with mock validators and httptest"
+  description: "oauth-mcp-proxy specific test organization"
   rules:
-    - "Use table-driven subtests with t.Run(tt.name, ...)"
     - "Mock validators implement provider.TokenValidator interface"
-    - "HTTP handler tests use httptest.NewRecorder() and httptest.NewRequest()"
     - "Test files: api_test.go, security_test.go, integration_test.go, config_test.go"
     - "Provider tests in provider/provider_test.go"
-    - "Run: make test (all), go test -v -run TestName ./... (single)"

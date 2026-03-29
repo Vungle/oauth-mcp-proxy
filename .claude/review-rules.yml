@@ -1,11 +1,8 @@
 # oauth-mcp-proxy review rules
 
 global:
-  - "Run make test before PR — all tests must pass"
-  - "Run make lint before PR — includes gofmt, go mod tidy, golangci-lint"
   - "Security considerations documented for any auth-related changes"
   - "No raw tokens in log statements — use SHA-256 hash prefix only"
-  - "New exported functions must have godoc comments"
 
 core_package:
   - "Token validation changes affect ALL adapters — test with both mark3labs and mcp adapter patterns"
