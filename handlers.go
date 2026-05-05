@@ -96,7 +96,7 @@ func NewOAuth2Handler(cfg *OAuth2Config, logger Logger) *OAuth2Handler {
 		ClientID:     cfg.ClientID,
 		ClientSecret: cfg.ClientSecret,
 		Endpoint:     endpoint,
-		Scopes:       []string{"openid", "profile", "email"},
+		Scopes:       defaultOIDCScopes(cfg.Provider),
 	}
 
 	// Log client configuration type for debugging
@@ -125,6 +125,15 @@ func NewOAuth2Handler(cfg *OAuth2Config, logger Logger) *OAuth2Handler {
 		oauth2Config: oauth2Config,
 		logger:       logger,
 	}
+}
+
+func defaultOIDCScopes(provider string) []string {
+	scopes := []string{"openid", "profile", "email"}
+	switch provider {
+	case "okta", "azure":
+		scopes = append(scopes, "offline_access")
+	}
+	return scopes
 }
 
 // discoverOIDCEndpoints uses OIDC discovery to get the correct authorization and token endpoints
@@ -517,6 +526,7 @@ func (h *OAuth2Handler) HandleToken(w http.ResponseWriter, r *http.Request) {
 	// Extract parameters
 	grantType := r.FormValue("grant_type")
 	code := r.FormValue("code")
+	refreshToken := r.FormValue("refresh_token")
 	clientRedirectURI := r.FormValue("redirect_uri")
 	clientID := r.FormValue("client_id")
 	codeVerifier := r.FormValue("code_verifier")
@@ -524,49 +534,67 @@ func (h *OAuth2Handler) HandleToken(w http.ResponseWriter, r *http.Request) {
 	h.logger.Info("OAuth2: Token request - grant_type: %s, client_id: %s, redirect_uri: %s, code: %s",
 		grantType, clientID, clientRedirectURI, truncateString(code, 10))
 
-	// Validate parameters
-	if code == "" {
-		h.logger.Error("OAuth2: Missing authorization code")
-		http.Error(w, "Missing authorization code", http.StatusBadRequest)
-		return
-	}
+	var token *oauth2.Token
+	var err error
 
-	if grantType != "authorization_code" {
+	switch grantType {
+	case "authorization_code":
+		if code == "" {
+			h.logger.Error("OAuth2: Missing authorization code")
+			http.Error(w, "Missing authorization code", http.StatusBadRequest)
+			return
+		}
+
+		// Set redirect URI for token exchange
+		redirectURI := clientRedirectURI
+		if h.config.RedirectURIs != "" && !strings.Contains(h.config.RedirectURIs, ",") {
+			redirectURI = strings.TrimSpace(h.config.RedirectURIs)
+			h.logger.Info("OAuth2: Token exchange using fixed redirect URI: %s", redirectURI)
+		}
+
+		h.oauth2Config.RedirectURL = redirectURI
+
+		// For PKCE, we need to manually add the code_verifier to the token exchange
+		// Since oauth2 library doesn't support PKCE directly, we'll use a custom approach
+		ctx := r.Context()
+
+		// Create custom HTTP client for token exchange with PKCE
+		if codeVerifier != "" {
+			// Create a custom client that adds code_verifier to the token request
+			customClient := &http.Client{
+				Transport: &pkceTransport{
+					base:         http.DefaultTransport,
+					codeVerifier: codeVerifier,
+				},
+			}
+			ctx = context.WithValue(ctx, oauth2.HTTPClient, customClient)
+		}
+
+		// Exchange code for tokens
+		token, err = h.oauth2Config.Exchange(ctx, code)
+		if err != nil {
+			h.logger.Error("OAuth2: Token exchange failed: %v", err)
+			http.Error(w, "Token exchange failed", http.StatusInternalServerError)
+			return
+		}
+	case "refresh_token":
+		if refreshToken == "" {
+			h.logger.Error("OAuth2: Missing refresh token")
+			http.Error(w, "Missing refresh token", http.StatusBadRequest)
+			return
+		}
+
+		token, err = h.oauth2Config.TokenSource(r.Context(), &oauth2.Token{
+			RefreshToken: refreshToken,
+		}).Token()
+		if err != nil {
+			h.logger.Error("OAuth2: Refresh token exchange failed: %v", err)
+			http.Error(w, "Token refresh failed", http.StatusBadGateway)
+			return
+		}
+	default:
 		h.logger.Error("OAuth2: Unsupported grant type: %s", grantType)
 		http.Error(w, "Unsupported grant type", http.StatusBadRequest)
-		return
-	}
-
-	// Set redirect URI for token exchange
-	redirectURI := clientRedirectURI
-	if h.config.RedirectURIs != "" && !strings.Contains(h.config.RedirectURIs, ",") {
-		redirectURI = strings.TrimSpace(h.config.RedirectURIs)
-		h.logger.Info("OAuth2: Token exchange using fixed redirect URI: %s", redirectURI)
-	}
-
-	h.oauth2Config.RedirectURL = redirectURI
-
-	// For PKCE, we need to manually add the code_verifier to the token exchange
-	// Since oauth2 library doesn't support PKCE directly, we'll use a custom approach
-	ctx := context.Background()
-
-	// Create custom HTTP client for token exchange with PKCE
-	if codeVerifier != "" {
-		// Create a custom client that adds code_verifier to the token request
-		customClient := &http.Client{
-			Transport: &pkceTransport{
-				base:         http.DefaultTransport,
-				codeVerifier: codeVerifier,
-			},
-		}
-		ctx = context.WithValue(ctx, oauth2.HTTPClient, customClient)
-	}
-
-	// Exchange code for tokens
-	token, err := h.oauth2Config.Exchange(ctx, code)
-	if err != nil {
-		h.logger.Error("OAuth2: Token exchange failed: %v", err)
-		http.Error(w, "Token exchange failed", http.StatusInternalServerError)
 		return
 	}
 

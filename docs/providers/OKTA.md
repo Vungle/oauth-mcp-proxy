@@ -227,6 +227,7 @@ Okta tokens include scopes. Recommended scopes for MCP:
 - `openid` - Required for OIDC
 - `profile` - User profile information
 - `email` - User email address
+- `offline_access` - Request refresh tokens for long-lived CLI sessions
 
 These are automatically requested when using proxy mode.
 

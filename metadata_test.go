@@ -91,27 +91,29 @@ func TestGetAuthorizationServerMetadata(t *testing.T) {
 }
 
 func TestHandleAuthorizationServerMetadata(t *testing.T) {
-	config := &OAuth2Config{
-		Mode:     "native",
-		Provider: "okta",
-		Issuer:   "https://dev.okta.com",
-		MCPURL:   "https://mcp.example.com",
-	}
-	handler := &OAuth2Handler{config: config, logger: &defaultLogger{}}
-
 	tests := []struct {
 		name           string
 		method         string
 		expectedStatus int
+		provider       string
+		expectOffline  bool
 	}{
-		{"GET request", "GET", http.StatusOK},
-		{"HEAD request", "HEAD", http.StatusOK},
-		{"OPTIONS request", "OPTIONS", http.StatusOK},
-		{"POST request", "POST", http.StatusMethodNotAllowed},
+		{"GET request", "GET", http.StatusOK, "okta", true},
+		{"HEAD request", "HEAD", http.StatusOK, "okta", true},
+		{"OPTIONS request", "OPTIONS", http.StatusOK, "okta", true},
+		{"POST request", "POST", http.StatusMethodNotAllowed, "okta", true},
+		{"Google metadata omits offline_access scope", "GET", http.StatusOK, "google", false},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
+			config := &OAuth2Config{
+				Mode:     "native",
+				Provider: tt.provider,
+				Issuer:   "https://dev.okta.com",
+				MCPURL:   "https://mcp.example.com",
+			}
+			handler := &OAuth2Handler{config: config, logger: &defaultLogger{}}
 			recorder := httptest.NewRecorder()
 			req := httptest.NewRequest(tt.method, "/.well-known/oauth-authorization-server", nil)
 
@@ -138,9 +140,31 @@ func TestHandleAuthorizationServerMetadata(t *testing.T) {
 				} else if issuer != config.Issuer {
 					t.Errorf("Issuer = %s, expected %s", issuer, config.Issuer)
 				}
+
+				grantTypes := metadata["grant_types_supported"].([]interface{})
+				if !containsStringValue(grantTypes, "refresh_token") {
+					t.Errorf("grant_types_supported = %v, expected refresh_token", grantTypes)
+				}
+
+				scopes := metadata["scopes_supported"].([]interface{})
+				if tt.expectOffline && !containsStringValue(scopes, "offline_access") {
+					t.Errorf("scopes_supported = %v, expected offline_access", scopes)
+				}
+				if !tt.expectOffline && containsStringValue(scopes, "offline_access") {
+					t.Errorf("scopes_supported = %v, did not expect offline_access", scopes)
+				}
 			}
 		})
 	}
+}
+
+func containsStringValue(values []interface{}, want string) bool {
+	for _, value := range values {
+		if value == want {
+			return true
+		}
+	}
+	return false
 }
 
 func TestHandleProtectedResourceMetadata(t *testing.T) {

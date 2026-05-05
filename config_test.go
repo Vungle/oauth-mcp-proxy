@@ -2,6 +2,7 @@ package oauth
 
 import (
 	"os"
+	"reflect"
 	"testing"
 )
 
@@ -109,6 +110,45 @@ func TestConfigBuilder(t *testing.T) {
 			}
 			if cfg.Provider != tt.wantProvider {
 				t.Errorf("Provider = %v, want %v", cfg.Provider, tt.wantProvider)
+			}
+		})
+	}
+}
+
+func TestOAuth2HandlerRequestsProviderDefaultScopes(t *testing.T) {
+	tests := []struct {
+		name     string
+		provider string
+		want     []string
+	}{
+		{
+			name:     "Okta requests offline access",
+			provider: "okta",
+			want:     []string{"openid", "profile", "email", "offline_access"},
+		},
+		{
+			name:     "Azure requests offline access",
+			provider: "azure",
+			want:     []string{"openid", "profile", "email", "offline_access"},
+		},
+		{
+			name:     "Google keeps standard OIDC scopes",
+			provider: "google",
+			want:     []string{"openid", "profile", "email"},
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			cfg := &OAuth2Config{
+				Provider: tt.provider,
+				Issuer:   "https://test.example.com",
+				Audience: "api://test",
+			}
+
+			handler := NewOAuth2Handler(cfg, &defaultLogger{})
+			if !reflect.DeepEqual(handler.oauth2Config.Scopes, tt.want) {
+				t.Fatalf("oauth scopes = %v, want %v", handler.oauth2Config.Scopes, tt.want)
 			}
 		})
 	}

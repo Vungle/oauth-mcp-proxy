@@ -47,7 +47,7 @@ func (h *OAuth2Handler) HandleMetadata(w http.ResponseWriter, r *http.Request) {
 		"registration_endpoint":    fmt.Sprintf("%s/oauth/register", h.config.MCPURL),
 		"response_types_supported": []string{"code"},
 		"response_modes_supported": []string{"query"},
-		"grant_types_supported":    []string{"authorization_code"},
+		"grant_types_supported":    []string{"authorization_code", "refresh_token"},
 	}
 
 	// Add provider-specific metadata
@@ -238,11 +238,11 @@ func (h *OAuth2Handler) HandleOIDCDiscovery(w http.ResponseWriter, r *http.Reque
 		"registration_endpoint":                 fmt.Sprintf("%s/oauth/register", h.config.MCPURL),
 		"response_types_supported":              []string{"code"},
 		"response_modes_supported":              []string{"query"},
-		"grant_types_supported":                 []string{"authorization_code"},
+		"grant_types_supported":                 []string{"authorization_code", "refresh_token"},
 		"token_endpoint_auth_methods_supported": []string{"none"},
 		"code_challenge_methods_supported":      []string{"plain", "S256"},
 		"subject_types_supported":               []string{"public"},
-		"scopes_supported":                      []string{"openid", "profile", "email"},
+		"scopes_supported":                      defaultOIDCScopes(h.config.Provider),
 	}
 
 	// Add provider-specific fields
@@ -279,10 +279,10 @@ func (h *OAuth2Handler) GetAuthorizationServerMetadata() map[string]interface{} 
 			"issuer":                                h.config.Issuer, // OAuth provider issuer
 			"response_types_supported":              []string{"code"},
 			"response_modes_supported":              []string{"query"},
-			"grant_types_supported":                 []string{"authorization_code"},
+			"grant_types_supported":                 []string{"authorization_code", "refresh_token"},
 			"token_endpoint_auth_methods_supported": []string{"none"},
 			"code_challenge_methods_supported":      []string{"plain", "S256"},
-			"scopes_supported":                      []string{"openid", "profile", "email"},
+			"scopes_supported":                      defaultOIDCScopes(h.config.Provider),
 		}
 
 		// Add provider-specific endpoints
@@ -311,10 +311,10 @@ func (h *OAuth2Handler) GetAuthorizationServerMetadata() map[string]interface{} 
 			"jwks_uri":                              fmt.Sprintf("%s/.well-known/jwks.json", h.config.MCPURL),
 			"response_types_supported":              []string{"code"},
 			"response_modes_supported":              []string{"query"},
-			"grant_types_supported":                 []string{"authorization_code"},
+			"grant_types_supported":                 []string{"authorization_code", "refresh_token"},
 			"token_endpoint_auth_methods_supported": []string{"none"},
 			"code_challenge_methods_supported":      []string{"plain", "S256"},
-			"scopes_supported":                      []string{"openid", "profile", "email"},
+			"scopes_supported":                      defaultOIDCScopes(h.config.Provider),
 		}
 	}
 
