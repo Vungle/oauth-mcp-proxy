@@ -2,9 +2,11 @@ package oauth
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"net/http"
 	"net/http/httptest"
+	"net/url"
 	"strings"
 	"testing"
 	"time"
@@ -12,6 +14,7 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/mark3labs/mcp-go/mcp"
 	mcpserver "github.com/mark3labs/mcp-go/server"
+	"golang.org/x/oauth2"
 )
 
 // TestWithOAuth validates the WithOAuth() convenience API.
@@ -195,6 +198,70 @@ func TestWithOAuth(t *testing.T) {
 		t.Logf("   - CreateHTTPContextFunc() extracts token")
 		t.Logf("   - Ready for StreamableHTTPServer")
 	})
+}
+
+func TestHandleTokenRefreshTokenGrant(t *testing.T) {
+	var receivedGrantType string
+	var receivedRefreshToken string
+	upstream := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if err := r.ParseForm(); err != nil {
+			t.Fatalf("ParseForm() error = %v", err)
+		}
+		receivedGrantType = r.FormValue("grant_type")
+		receivedRefreshToken = r.FormValue("refresh_token")
+
+		w.Header().Set("Content-Type", "application/json")
+		_, _ = w.Write([]byte(`{
+			"access_token": "new-access-token",
+			"token_type": "Bearer",
+			"expires_in": 3600,
+			"refresh_token": "new-refresh-token"
+		}`))
+	}))
+	defer upstream.Close()
+
+	handler := &OAuth2Handler{
+		config: &OAuth2Config{
+			Mode: "proxy",
+		},
+		oauth2Config: &oauth2.Config{
+			ClientID: "test-client",
+			Endpoint: oauth2.Endpoint{
+				TokenURL: upstream.URL,
+			},
+		},
+		logger: &defaultLogger{},
+	}
+
+	form := url.Values{}
+	form.Set("grant_type", "refresh_token")
+	form.Set("refresh_token", "old-refresh-token")
+	req := httptest.NewRequest(http.MethodPost, "/oauth/token", strings.NewReader(form.Encode()))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	rec := httptest.NewRecorder()
+
+	handler.HandleToken(rec, req)
+
+	if rec.Code != http.StatusOK {
+		t.Fatalf("status = %d, body = %s", rec.Code, rec.Body.String())
+	}
+	if receivedGrantType != "refresh_token" {
+		t.Fatalf("upstream grant_type = %q, want refresh_token", receivedGrantType)
+	}
+	if receivedRefreshToken != "old-refresh-token" {
+		t.Fatalf("upstream refresh_token = %q, want old-refresh-token", receivedRefreshToken)
+	}
+
+	var response map[string]any
+	if err := json.Unmarshal(rec.Body.Bytes(), &response); err != nil {
+		t.Fatalf("response JSON error = %v", err)
+	}
+	if response["access_token"] != "new-access-token" {
+		t.Fatalf("access_token = %v, want new-access-token", response["access_token"])
+	}
+	if response["refresh_token"] != "new-refresh-token" {
+		t.Fatalf("refresh_token = %v, want new-refresh-token", response["refresh_token"])
+	}
 }
 
 // TestWithOAuthAPI validates the WithOAuth() API design goals.
