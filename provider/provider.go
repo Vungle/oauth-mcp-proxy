@@ -2,7 +2,11 @@ package provider
 
 import (
 	"context"
+	"crypto/ed25519"
+	"crypto/rsa"
 	"crypto/tls"
+	"crypto/x509"
+	"encoding/pem"
 	"fmt"
 	"net/http"
 	"strings"
@@ -30,11 +34,15 @@ type Logger interface {
 
 // Config holds OAuth configuration (subset needed by provider)
 type Config struct {
-	Provider  string
-	Issuer    string
-	Audience  string
-	JWTSecret []byte
-	Logger    Logger
+	Provider                  string
+	Issuer                    string
+	Audience                  string
+	JWTSecret                 []byte
+	ServiceTokenIssuer        string
+	ServiceTokenAudience      string
+	ServiceTokenPublicKeyPEM  string
+	ServiceTokenSubjectPrefix string
+	Logger                    Logger
 }
 
 // TokenValidator interface for OAuth token validation
@@ -56,6 +64,169 @@ type OIDCValidator struct {
 	provider *oidc.Provider
 	audience string
 	logger   Logger
+}
+
+// ServiceTokenValidator validates asymmetric JWTs for non-interactive service access.
+type ServiceTokenValidator struct {
+	issuer        string
+	audience      string
+	subjectPrefix string
+	publicKey     any
+}
+
+// RoutingValidator routes service-token JWTs to ServiceTokenValidator and all
+// other tokens to the primary OAuth provider validator.
+type RoutingValidator struct {
+	primary       TokenValidator
+	serviceToken  TokenValidator
+	serviceIssuer string
+}
+
+// NewRoutingValidator returns a validator that supports both interactive OAuth
+// provider tokens and non-interactive service tokens.
+func NewRoutingValidator(primary TokenValidator, serviceToken TokenValidator, serviceIssuer string) TokenValidator {
+	return &RoutingValidator{
+		primary:       primary,
+		serviceToken:  serviceToken,
+		serviceIssuer: serviceIssuer,
+	}
+}
+
+// ValidateToken validates service-token issuer JWTs with the service-token
+// validator and all other tokens with the primary validator.
+func (v *RoutingValidator) ValidateToken(ctx context.Context, tokenString string) (*User, error) {
+	if peekJWTIssuer(tokenString) == v.serviceIssuer {
+		return v.serviceToken.ValidateToken(ctx, tokenString)
+	}
+	return v.primary.ValidateToken(ctx, tokenString)
+}
+
+// Initialize is not used; child validators are initialized before routing.
+func (v *RoutingValidator) Initialize(cfg *Config) error {
+	return nil
+}
+
+// Initialize sets up the asymmetric service-token validator.
+func (v *ServiceTokenValidator) Initialize(cfg *Config) error {
+	v.issuer = cfg.ServiceTokenIssuer
+	v.audience = cfg.ServiceTokenAudience
+	v.subjectPrefix = cfg.ServiceTokenSubjectPrefix
+
+	if v.issuer == "" {
+		return fmt.Errorf("service token issuer is required")
+	}
+	if v.audience == "" {
+		return fmt.Errorf("service token audience is required")
+	}
+	if v.subjectPrefix == "" {
+		return fmt.Errorf("service token subject prefix is required")
+	}
+
+	publicKey, err := parseServiceTokenPublicKey(cfg.ServiceTokenPublicKeyPEM)
+	if err != nil {
+		return err
+	}
+	v.publicKey = publicKey
+	return nil
+}
+
+// ValidateToken validates an EdDSA or RS256 service JWT using the configured public key.
+func (v *ServiceTokenValidator) ValidateToken(ctx context.Context, tokenString string) (*User, error) {
+	tokenString = strings.TrimPrefix(tokenString, "Bearer ")
+
+	claims := &struct {
+		PreferredUsername string `json:"preferred_username"`
+		Email             string `json:"email"`
+		jwt.RegisteredClaims
+	}{}
+
+	token, err := jwt.ParseWithClaims(
+		tokenString,
+		claims,
+		func(token *jwt.Token) (interface{}, error) {
+			switch token.Method.Alg() {
+			case jwt.SigningMethodEdDSA.Alg():
+				if key, ok := v.publicKey.(ed25519.PublicKey); ok {
+					return key, nil
+				}
+			case jwt.SigningMethodRS256.Alg():
+				if key, ok := v.publicKey.(*rsa.PublicKey); ok {
+					return key, nil
+				}
+			}
+			return nil, fmt.Errorf("unexpected signing method: %s", token.Method.Alg())
+		},
+		jwt.WithIssuer(v.issuer),
+		jwt.WithAudience(v.audience),
+		jwt.WithExpirationRequired(),
+	)
+	if err != nil {
+		return nil, fmt.Errorf("failed to parse and validate service token: %w", err)
+	}
+	if !token.Valid {
+		return nil, fmt.Errorf("invalid service token")
+	}
+	if claims.Subject == "" {
+		return nil, fmt.Errorf("missing subject in service token")
+	}
+	if !strings.HasPrefix(claims.Subject, v.subjectPrefix) {
+		return nil, fmt.Errorf("service token subject must start with %q", v.subjectPrefix)
+	}
+
+	username := claims.PreferredUsername
+	if username == "" {
+		username = claims.Subject
+	}
+
+	return &User{
+		Subject:  claims.Subject,
+		Username: username,
+		Email:    claims.Email,
+	}, nil
+}
+
+func parseServiceTokenPublicKey(publicKeyPEM string) (any, error) {
+	if strings.TrimSpace(publicKeyPEM) == "" {
+		return nil, fmt.Errorf("service token public key PEM is required")
+	}
+
+	block, _ := pem.Decode([]byte(publicKeyPEM))
+	if block == nil {
+		return nil, fmt.Errorf("failed to decode service token public key PEM")
+	}
+
+	if block.Type == "RSA PUBLIC KEY" {
+		key, err := x509.ParsePKCS1PublicKey(block.Bytes)
+		if err != nil {
+			return nil, fmt.Errorf("failed to parse RSA service token public key: %w", err)
+		}
+		return key, nil
+	}
+
+	key, err := x509.ParsePKIXPublicKey(block.Bytes)
+	if err != nil {
+		return nil, fmt.Errorf("failed to parse service token public key: %w", err)
+	}
+
+	switch key := key.(type) {
+	case ed25519.PublicKey:
+		return key, nil
+	case *rsa.PublicKey:
+		return key, nil
+	default:
+		return nil, fmt.Errorf("unsupported service token public key type %T", key)
+	}
+}
+
+func peekJWTIssuer(tokenString string) string {
+	tokenString = strings.TrimPrefix(tokenString, "Bearer ")
+
+	parser := jwt.NewParser()
+	claims := jwt.MapClaims{}
+	if _, _, err := parser.ParseUnverified(tokenString, claims); err != nil {
+		return ""
+	}
+	return getStringClaim(claims, "iss")
 }
 
 // Initialize sets up the HMAC validator with JWT secret and audience

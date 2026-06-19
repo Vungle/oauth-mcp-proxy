@@ -52,6 +52,15 @@ http.ListenAndServe(":8080", handler)
 - **Fast token caching** - 5-min cache, <5ms validation
 - **Production ready** - Security hardened, battle-tested
 - **Multiple providers** - HMAC, Okta, Google, Azure AD
+- **Headless service tokens** - Optional asymmetric JWTs for non-interactive agents without changing your OAuth provider
+
+---
+
+## Service Tokens for Agents
+
+Remote MCP servers can opt in to service-token auth for headless agents while keeping the existing human OAuth flow. Service tokens are asymmetric JWTs verified with a public key; the MCP server never needs the private key.
+
+See [Service Tokens](docs/SERVICE-TOKENS.md) for the token contract, config fields, and rotation notes.
 
 ---
 
