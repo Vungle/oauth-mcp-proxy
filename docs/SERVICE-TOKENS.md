@@ -29,8 +29,8 @@ oauthServer, oauthOption, err := mark3labs.WithOAuth(mux, &oauth.Config{
     Audience: "https://your-company.okta.com",
 
     ServiceTokenEnabled:       true,
-    ServiceTokenIssuer:        "phoebe-service",
-    ServiceTokenAudience:      "api://phoebe-mcp",
+    ServiceTokenIssuer:        "agent-auth-service",
+    ServiceTokenAudience:      "api://example-mcp-server",
     ServiceTokenPublicKeyPEM:  publicKeyPEM,
     ServiceTokenSubjectPrefix: "svc-",
 })
@@ -44,8 +44,8 @@ oauthServer, oauthOption, err := mark3labs.WithOAuth(mux, &oauth.Config{
 
 ```text
 SERVICE_TOKEN_ENABLED=true
-SERVICE_TOKEN_ISSUER=phoebe-service
-SERVICE_TOKEN_AUDIENCE=api://phoebe-mcp
+SERVICE_TOKEN_ISSUER=agent-auth-service
+SERVICE_TOKEN_AUDIENCE=api://example-mcp-server
 SERVICE_TOKEN_PUBLIC_KEY_PEM=<PEM public key>
 SERVICE_TOKEN_PUBLIC_KEY_PEM_B64=<base64-encoded PEM public key>
 SERVICE_TOKEN_SUBJECT_PREFIX=svc-

@@ -142,8 +142,8 @@ cfg := &oauth.Config{
     Audience: "https://company.okta.com",
 
     ServiceTokenEnabled:       true,
-    ServiceTokenIssuer:        "phoebe-service",
-    ServiceTokenAudience:      "api://phoebe-mcp",
+    ServiceTokenIssuer:        "agent-auth-service",
+    ServiceTokenAudience:      "api://example-mcp-server",
     ServiceTokenPublicKeyPEM:  publicKeyPEM,
     ServiceTokenSubjectPrefix: "svc-",
 }

@@ -17,8 +17,8 @@ import (
 
 const (
 	testPrimaryAudience = "api://primary"
-	testServiceIssuer   = "phoebe-service"
-	testServiceAudience = "api://phoebe-mcp"
+	testServiceIssuer   = "agent-auth-service"
+	testServiceAudience = "api://example-mcp-server"
 )
 
 func TestServiceTokenValidation(t *testing.T) {
@@ -28,8 +28,8 @@ func TestServiceTokenValidation(t *testing.T) {
 	token := signServiceToken(t, privateKey, jwt.MapClaims{
 		"iss":                testServiceIssuer,
 		"aud":                testServiceAudience,
-		"sub":                "svc-calypso",
-		"preferred_username": "svc-calypso",
+		"sub":                "svc-example-agent",
+		"preferred_username": "svc-example-agent",
 		"exp":                time.Now().Add(time.Hour).Unix(),
 	})
 
@@ -37,11 +37,11 @@ func TestServiceTokenValidation(t *testing.T) {
 	if err != nil {
 		t.Fatalf("ValidateTokenCached() error = %v", err)
 	}
-	if user.Subject != "svc-calypso" {
-		t.Fatalf("Subject = %q, want svc-calypso", user.Subject)
+	if user.Subject != "svc-example-agent" {
+		t.Fatalf("Subject = %q, want svc-example-agent", user.Subject)
 	}
-	if user.Username != "svc-calypso" {
-		t.Fatalf("Username = %q, want svc-calypso", user.Username)
+	if user.Username != "svc-example-agent" {
+		t.Fatalf("Username = %q, want svc-example-agent", user.Username)
 	}
 }
 
@@ -52,7 +52,7 @@ func TestServiceTokenValidationRS256(t *testing.T) {
 	token := jwt.NewWithClaims(jwt.SigningMethodRS256, jwt.MapClaims{
 		"iss": testServiceIssuer,
 		"aud": testServiceAudience,
-		"sub": "svc-calypso",
+		"sub": "svc-example-agent",
 		"exp": time.Now().Add(time.Hour).Unix(),
 	})
 	tokenString, err := token.SignedString(privateKey)
@@ -64,8 +64,8 @@ func TestServiceTokenValidationRS256(t *testing.T) {
 	if err != nil {
 		t.Fatalf("ValidateTokenCached() error = %v", err)
 	}
-	if user.Subject != "svc-calypso" {
-		t.Fatalf("Subject = %q, want svc-calypso", user.Subject)
+	if user.Subject != "svc-example-agent" {
+		t.Fatalf("Subject = %q, want svc-example-agent", user.Subject)
 	}
 }
 
@@ -84,7 +84,7 @@ func TestServiceTokenRejectsInvalidTokens(t *testing.T) {
 			claims: jwt.MapClaims{
 				"iss": testServiceIssuer,
 				"aud": testServiceAudience,
-				"sub": "svc-calypso",
+				"sub": "svc-example-agent",
 				"exp": time.Now().Add(time.Hour).Unix(),
 			},
 			key: wrongPrivateKey,
@@ -94,7 +94,7 @@ func TestServiceTokenRejectsInvalidTokens(t *testing.T) {
 			claims: jwt.MapClaims{
 				"iss": "other-service",
 				"aud": testServiceAudience,
-				"sub": "svc-calypso",
+				"sub": "svc-example-agent",
 				"exp": time.Now().Add(time.Hour).Unix(),
 			},
 			key: privateKey,
@@ -104,7 +104,7 @@ func TestServiceTokenRejectsInvalidTokens(t *testing.T) {
 			claims: jwt.MapClaims{
 				"iss": testServiceIssuer,
 				"aud": "api://other",
-				"sub": "svc-calypso",
+				"sub": "svc-example-agent",
 				"exp": time.Now().Add(time.Hour).Unix(),
 			},
 			key: privateKey,
@@ -114,7 +114,7 @@ func TestServiceTokenRejectsInvalidTokens(t *testing.T) {
 			claims: jwt.MapClaims{
 				"iss": testServiceIssuer,
 				"aud": testServiceAudience,
-				"sub": "svc-calypso",
+				"sub": "svc-example-agent",
 				"exp": time.Now().Add(-time.Hour).Unix(),
 			},
 			key: privateKey,
@@ -124,7 +124,7 @@ func TestServiceTokenRejectsInvalidTokens(t *testing.T) {
 			claims: jwt.MapClaims{
 				"iss": testServiceIssuer,
 				"aud": testServiceAudience,
-				"sub": "svc-calypso",
+				"sub": "svc-example-agent",
 			},
 			key: privateKey,
 		},
@@ -133,7 +133,7 @@ func TestServiceTokenRejectsInvalidTokens(t *testing.T) {
 			claims: jwt.MapClaims{
 				"iss": testServiceIssuer,
 				"aud": testServiceAudience,
-				"sub": "calypso",
+				"sub": "example-agent",
 				"exp": time.Now().Add(time.Hour).Unix(),
 			},
 			key: privateKey,
@@ -157,7 +157,7 @@ func TestServiceTokenRejectsSymmetricAlgorithm(t *testing.T) {
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 		"iss": testServiceIssuer,
 		"aud": testServiceAudience,
-		"sub": "svc-calypso",
+		"sub": "svc-example-agent",
 		"exp": time.Now().Add(time.Hour).Unix(),
 	})
 	tokenString, err := token.SignedString([]byte("shared-secret"))
