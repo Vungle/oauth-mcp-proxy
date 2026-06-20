@@ -9,9 +9,10 @@ import (
 // Config holds OAuth configuration
 type Config struct {
 	// OAuth settings
-	Mode         string // "native" or "proxy"
-	Provider     string // "hmac", "okta", "google", "azure"
-	RedirectURIs string // Redirect URIs (single or comma-separated)
+	Mode             string // "native" or "proxy"
+	Provider         string // "hmac", "okta", "google", "azure"
+	RedirectURIs     string // Redirect URI allowlist (single or comma-separated)
+	FixedRedirectURI string // Optional fixed redirect URI used to proxy callbacks
 
 	// OIDC configuration
 	Issuer       string
@@ -81,8 +82,8 @@ func (c *Config) Validate() error {
 		if c.ServerURL == "" {
 			return fmt.Errorf("proxy mode requires ServerURL")
 		}
-		if c.RedirectURIs == "" {
-			return fmt.Errorf("proxy mode requires RedirectURIs")
+		if c.RedirectURIs == "" && c.FixedRedirectURI == "" {
+			return fmt.Errorf("proxy mode requires RedirectURIs or FixedRedirectURI")
 		}
 	}
 

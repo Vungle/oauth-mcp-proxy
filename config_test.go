@@ -115,6 +115,39 @@ func TestConfigBuilder(t *testing.T) {
 	}
 }
 
+func TestProxyConfigAcceptsFixedRedirectURI(t *testing.T) {
+	cfg := &Config{
+		Mode:             "proxy",
+		Provider:         "okta",
+		Issuer:           "https://okta.example.com",
+		Audience:         "test-audience",
+		ClientID:         "client-123",
+		ServerURL:        "https://mcp.example.com",
+		FixedRedirectURI: "https://mcp.example.com/oauth/callback",
+	}
+
+	if err := cfg.Validate(); err != nil {
+		t.Fatalf("Validate() error = %v", err)
+	}
+}
+
+func TestProxyConfigAcceptsAllowlistWithFixedRedirectURI(t *testing.T) {
+	cfg := &Config{
+		Mode:             "proxy",
+		Provider:         "okta",
+		Issuer:           "https://okta.example.com",
+		Audience:         "test-audience",
+		ClientID:         "client-123",
+		ServerURL:        "https://mcp.example.com",
+		RedirectURIs:     "cursor://anysphere.cursor-mcp/oauth/callback",
+		FixedRedirectURI: "https://mcp.example.com/oauth/callback",
+	}
+
+	if err := cfg.Validate(); err != nil {
+		t.Fatalf("Validate() error = %v", err)
+	}
+}
+
 func TestOAuth2HandlerRequestsProviderDefaultScopes(t *testing.T) {
 	tests := []struct {
 		name     string
