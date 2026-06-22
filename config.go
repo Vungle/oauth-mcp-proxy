@@ -13,6 +13,9 @@ type Config struct {
 	Mode         string // "native" or "proxy"
 	Provider     string // "hmac", "okta", "google", "azure"
 	RedirectURIs string // Redirect URIs (single or comma-separated)
+	// AllowedClientRedirectURIs are exact client callback URIs allowed in fixed
+	// redirect mode in addition to localhost/loopback callbacks.
+	AllowedClientRedirectURIs string
 
 	// OIDC configuration
 	Issuer       string
@@ -222,6 +225,13 @@ func (b *ConfigBuilder) WithRedirectURIs(uris string) *ConfigBuilder {
 	return b
 }
 
+// WithAllowedClientRedirectURIs sets exact client callback URIs allowed in
+// fixed redirect mode in addition to localhost/loopback callbacks.
+func (b *ConfigBuilder) WithAllowedClientRedirectURIs(uris string) *ConfigBuilder {
+	b.config.AllowedClientRedirectURIs = uris
+	return b
+}
+
 // WithIssuer sets the OIDC issuer
 func (b *ConfigBuilder) WithIssuer(issuer string) *ConfigBuilder {
 	b.config.Issuer = issuer
@@ -333,6 +343,7 @@ func FromEnv() (*Config, error) {
 		WithMode(getEnv("OAUTH_MODE", "")).
 		WithProvider(getEnv("OAUTH_PROVIDER", "")).
 		WithRedirectURIs(getEnv("OAUTH_REDIRECT_URIS", "")).
+		WithAllowedClientRedirectURIs(getEnv("OAUTH_ALLOWED_CLIENT_REDIRECT_URIS", "")).
 		WithIssuer(getEnv("OIDC_ISSUER", "")).
 		WithAudience(getEnv("OIDC_AUDIENCE", "")).
 		WithClientID(getEnv("OIDC_CLIENT_ID", "")).

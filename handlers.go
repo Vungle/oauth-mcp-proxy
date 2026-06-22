@@ -36,10 +36,11 @@ func (h *OAuth2Handler) GetConfig() *OAuth2Config {
 
 // OAuth2Config holds OAuth2 configuration
 type OAuth2Config struct {
-	Enabled      bool
-	Mode         string // "native" or "proxy"
-	Provider     string
-	RedirectURIs string
+	Enabled                   bool
+	Mode                      string // "native" or "proxy"
+	Provider                  string
+	RedirectURIs              string
+	AllowedClientRedirectURIs string
 
 	// OIDC configuration
 	Issuer       string
@@ -186,21 +187,27 @@ func NewOAuth2ConfigFromConfig(cfg *Config, version string) *OAuth2Config {
 		mcpURL = getEnv("MCP_URL", fmt.Sprintf("%s://%s:%s", scheme, mcpHost, mcpPort))
 	}
 
+	allowedClientRedirectURIs := cfg.AllowedClientRedirectURIs
+	if allowedClientRedirectURIs == "" {
+		allowedClientRedirectURIs = getEnv("OAUTH_ALLOWED_CLIENT_REDIRECT_URIS", "")
+	}
+
 	return &OAuth2Config{
-		Enabled:         true,
-		Mode:            cfg.Mode,
-		Provider:        cfg.Provider,
-		RedirectURIs:    cfg.RedirectURIs,
-		Issuer:          cfg.Issuer,
-		Audience:        cfg.Audience,
-		ClientID:        cfg.ClientID,
-		ClientSecret:    cfg.ClientSecret,
-		MCPHost:         mcpHost,
-		MCPPort:         mcpPort,
-		MCPURL:          mcpURL,
-		Scheme:          scheme,
-		Version:         version,
-		stateSigningKey: cfg.JWTSecret,
+		Enabled:                   true,
+		Mode:                      cfg.Mode,
+		Provider:                  cfg.Provider,
+		RedirectURIs:              cfg.RedirectURIs,
+		AllowedClientRedirectURIs: allowedClientRedirectURIs,
+		Issuer:                    cfg.Issuer,
+		Audience:                  cfg.Audience,
+		ClientID:                  cfg.ClientID,
+		ClientSecret:              cfg.ClientSecret,
+		MCPHost:                   mcpHost,
+		MCPPort:                   mcpPort,
+		MCPURL:                    mcpURL,
+		Scheme:                    scheme,
+		Version:                   version,
+		stateSigningKey:           cfg.JWTSecret,
 	}
 }
 
@@ -321,20 +328,6 @@ func (h *OAuth2Handler) HandleAuthorize(w http.ResponseWriter, r *http.Request) 
 			return
 		}
 
-		// Additional security checks for client redirect URI
-		if parsedURI.Scheme != "http" && parsedURI.Scheme != "https" {
-			h.logger.Warn("SECURITY: Invalid redirect URI scheme: %s (must be http or https)", parsedURI.Scheme)
-			http.Error(w, "Invalid redirect_uri scheme", http.StatusBadRequest)
-			return
-		}
-
-		// Enforce HTTPS for non-localhost URIs
-		if parsedURI.Scheme == "http" && !isLocalhostURI(clientRedirectURI) {
-			h.logger.Warn("SECURITY: HTTP redirect URI not allowed for non-localhost: %s", clientRedirectURI)
-			http.Error(w, "HTTPS required for non-localhost redirect_uri", http.StatusBadRequest)
-			return
-		}
-
 		// Prevent fragment in redirect URI (OAuth 2.0 spec)
 		if parsedURI.Fragment != "" {
 			h.logger.Warn("SECURITY: Redirect URI contains fragment: %s", clientRedirectURI)
@@ -342,15 +335,13 @@ func (h *OAuth2Handler) HandleAuthorize(w http.ResponseWriter, r *http.Request) 
 			return
 		}
 
-		// Security: For fixed redirect mode, only allow localhost or loopback addresses
-		// This prevents open redirect attacks while still supporting development tools
-		if !isLocalhostURI(clientRedirectURI) {
-			h.logger.Warn("SECURITY: Fixed redirect mode only allows localhost URIs, rejecting: %s from %s", clientRedirectURI, r.RemoteAddr)
-			http.Error(w, "Fixed redirect mode only allows localhost redirect URIs for security. Use allowlist mode for production.", http.StatusBadRequest)
+		if err := h.validateFixedModeClientRedirectURI(clientRedirectURI, parsedURI); err != nil {
+			h.logger.Warn("SECURITY: Fixed redirect mode rejected client redirect URI %s from %s: %v", clientRedirectURI, r.RemoteAddr, err)
+			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
 		}
 
-		h.logger.Info("OAuth2: Validated localhost redirect URI for proxy: %s", clientRedirectURI)
+		h.logger.Info("OAuth2: Validated client redirect URI for proxy: %s", clientRedirectURI)
 	} else if h.config.RedirectURIs != "" {
 		// Allowlist mode: Client's URI must be in allowlist, used directly (no proxy)
 		if !h.isValidRedirectURI(clientRedirectURI) {
@@ -465,10 +456,15 @@ func (h *OAuth2Handler) HandleCallback(w http.ResponseWriter, r *http.Request) {
 		originalRedirectURI, hasRedirect := stateData["redirect"]
 
 		if hasState && hasRedirect {
-			// Re-validate redirect URI for defense in depth
-			// Even though state is HMAC-signed, validate the redirect URI is localhost
-			if !isLocalhostURI(originalRedirectURI) {
-				h.logger.Warn("SECURITY: Callback redirect URI is not localhost (possible key compromise): %s", originalRedirectURI)
+			parsedURI, err := url.Parse(originalRedirectURI)
+			if err != nil {
+				h.logger.Warn("SECURITY: Invalid callback redirect URI format in state: %s", originalRedirectURI)
+				http.Error(w, "Invalid redirect URI in state", http.StatusBadRequest)
+				return
+			}
+
+			if err := h.validateFixedModeClientRedirectURI(originalRedirectURI, parsedURI); err != nil {
+				h.logger.Warn("SECURITY: Callback redirect URI rejected during state revalidation: %s", originalRedirectURI)
 				http.Error(w, "Invalid redirect URI in state", http.StatusBadRequest)
 				return
 			}
@@ -794,6 +790,38 @@ func isLocalhostURI(uri string) bool {
 
 	hostname := strings.ToLower(parsedURI.Hostname())
 	return hostname == "localhost" || hostname == "127.0.0.1" || hostname == "::1"
+}
+
+func (h *OAuth2Handler) validateFixedModeClientRedirectURI(uri string, parsedURI *url.URL) error {
+	if parsedURI.Scheme == "http" || parsedURI.Scheme == "https" {
+		if parsedURI.Scheme == "http" && !isLocalhostURI(uri) {
+			return fmt.Errorf("https required for non-localhost redirect_uri")
+		}
+		if !isLocalhostURI(uri) {
+			return fmt.Errorf("fixed redirect mode only allows localhost redirect URIs for security; use allowlist mode for production")
+		}
+		return nil
+	}
+
+	if h.isAllowedClientRedirectURI(uri) {
+		return nil
+	}
+
+	return fmt.Errorf("invalid redirect_uri scheme")
+}
+
+func (h *OAuth2Handler) isAllowedClientRedirectURI(uri string) bool {
+	if h.config.AllowedClientRedirectURIs == "" {
+		return false
+	}
+
+	for _, allowed := range strings.Split(h.config.AllowedClientRedirectURIs, ",") {
+		if strings.TrimSpace(allowed) == uri {
+			return true
+		}
+	}
+
+	return false
 }
 
 // isValidRedirectURI validates redirect URI against allowlist for security

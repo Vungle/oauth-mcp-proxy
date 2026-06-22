@@ -115,6 +115,49 @@ func TestConfigBuilder(t *testing.T) {
 	}
 }
 
+func TestAllowedClientRedirectURIsConfig(t *testing.T) {
+	cfg, err := NewConfigBuilder().
+		WithMode("proxy").
+		WithProvider("okta").
+		WithIssuer("https://okta.example.com").
+		WithAudience("test-audience").
+		WithClientID("client-123").
+		WithClientSecret("secret-456").
+		WithRedirectURIs("https://mcp-server.com/oauth/callback").
+		WithAllowedClientRedirectURIs("cursor://anysphere.cursor-mcp/oauth/callback").
+		Build()
+	if err != nil {
+		t.Fatalf("Build() error = %v", err)
+	}
+
+	oauth2Config := NewOAuth2ConfigFromConfig(cfg, "test")
+	if got, want := oauth2Config.AllowedClientRedirectURIs, "cursor://anysphere.cursor-mcp/oauth/callback"; got != want {
+		t.Fatalf("AllowedClientRedirectURIs = %q, want %q", got, want)
+	}
+}
+
+func TestAllowedClientRedirectURIsEnvFallback(t *testing.T) {
+	t.Setenv("OAUTH_ALLOWED_CLIENT_REDIRECT_URIS", "cursor://anysphere.cursor-mcp/oauth/callback")
+
+	cfg, err := NewConfigBuilder().
+		WithMode("proxy").
+		WithProvider("okta").
+		WithIssuer("https://okta.example.com").
+		WithAudience("test-audience").
+		WithClientID("client-123").
+		WithClientSecret("secret-456").
+		WithRedirectURIs("https://mcp-server.com/oauth/callback").
+		Build()
+	if err != nil {
+		t.Fatalf("Build() error = %v", err)
+	}
+
+	oauth2Config := NewOAuth2ConfigFromConfig(cfg, "test")
+	if got, want := oauth2Config.AllowedClientRedirectURIs, "cursor://anysphere.cursor-mcp/oauth/callback"; got != want {
+		t.Fatalf("AllowedClientRedirectURIs = %q, want %q", got, want)
+	}
+}
+
 func TestOAuth2HandlerRequestsProviderDefaultScopes(t *testing.T) {
 	tests := []struct {
 		name     string
