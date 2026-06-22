@@ -151,10 +151,10 @@ func cacheExpiresAtForToken(tokenString string, now time.Time) (time.Time, bool)
 	if claims.ExpiresAt == nil {
 		return expiresAt, true
 	}
-	if !claims.ExpiresAt.Time.After(now) {
+	if !claims.ExpiresAt.After(now) {
 		return time.Time{}, false
 	}
-	if claims.ExpiresAt.Time.Before(expiresAt) {
+	if claims.ExpiresAt.Before(expiresAt) {
 		return claims.ExpiresAt.Time, true
 	}
 
