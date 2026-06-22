@@ -92,7 +92,7 @@ jobs:
           govulncheck ./...
 
       - name: Run dependency scan
-        uses: aquasecurity/trivy-action@v0.33.1
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           scan-type: "fs"
           scan-ref: "."
@@ -100,6 +100,7 @@ jobs:
           output: "trivy-results.sarif"
           severity: "CRITICAL,HIGH,MEDIUM"
           timeout: "10m"
+          version: "v0.71.2"
 
       - name: Upload security scan results
         uses: github/codeql-action/upload-sarif@v4
