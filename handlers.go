@@ -795,10 +795,10 @@ func isLocalhostURI(uri string) bool {
 func (h *OAuth2Handler) validateFixedModeClientRedirectURI(uri string, parsedURI *url.URL) error {
 	if parsedURI.Scheme == "http" || parsedURI.Scheme == "https" {
 		if parsedURI.Scheme == "http" && !isLocalhostURI(uri) {
-			return fmt.Errorf("HTTPS required for non-localhost redirect_uri")
+			return fmt.Errorf("https required for non-localhost redirect_uri")
 		}
 		if !isLocalhostURI(uri) {
-			return fmt.Errorf("Fixed redirect mode only allows localhost redirect URIs for security. Use allowlist mode for production.")
+			return fmt.Errorf("fixed redirect mode only allows localhost redirect URIs for security; use allowlist mode for production")
 		}
 		return nil
 	}
@@ -807,7 +807,7 @@ func (h *OAuth2Handler) validateFixedModeClientRedirectURI(uri string, parsedURI
 		return nil
 	}
 
-	return fmt.Errorf("Invalid redirect_uri scheme")
+	return fmt.Errorf("invalid redirect_uri scheme")
 }
 
 func (h *OAuth2Handler) isAllowedClientRedirectURI(uri string) bool {

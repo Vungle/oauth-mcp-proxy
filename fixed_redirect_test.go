@@ -45,19 +45,19 @@ func TestFixedRedirectModeLocalhostOnly(t *testing.T) {
 			name:          "HTTPS production domain rejected",
 			clientURI:     "https://evil.com/callback",
 			shouldPass:    false,
-			expectedError: "Fixed redirect mode only allows localhost",
+			expectedError: "fixed redirect mode only allows localhost",
 		},
 		{
 			name:          "HTTP production domain rejected",
 			clientURI:     "http://evil.com/callback",
 			shouldPass:    false,
-			expectedError: "HTTPS required for non-localhost",
+			expectedError: "https required for non-localhost",
 		},
 		{
 			name:          "localhost subdomain rejected",
 			clientURI:     "https://localhost.evil.com/callback",
 			shouldPass:    false,
-			expectedError: "Fixed redirect mode only allows localhost",
+			expectedError: "fixed redirect mode only allows localhost",
 		},
 		{
 			name:          "URI with fragment rejected",
@@ -69,7 +69,7 @@ func TestFixedRedirectModeLocalhostOnly(t *testing.T) {
 			name:          "Custom scheme rejected",
 			clientURI:     "custom://localhost:8080/callback",
 			shouldPass:    false,
-			expectedError: "Invalid redirect_uri scheme",
+			expectedError: "invalid redirect_uri scheme",
 		},
 	}
 
@@ -81,7 +81,7 @@ func TestFixedRedirectModeLocalhostOnly(t *testing.T) {
 				t.Errorf("Expected localhost detection to pass for %s", tt.clientURI)
 			}
 
-			if !tt.shouldPass && isLocalhost && tt.expectedError != "must not contain fragment" && tt.expectedError != "Invalid redirect_uri scheme" {
+			if !tt.shouldPass && isLocalhost && tt.expectedError != "must not contain fragment" && tt.expectedError != "invalid redirect_uri scheme" {
 				t.Errorf("Expected localhost detection to fail for %s", tt.clientURI)
 			}
 
@@ -139,8 +139,8 @@ func TestFixedRedirectModeRejectsUnconfiguredCustomScheme(t *testing.T) {
 	if recorder.Code != http.StatusBadRequest {
 		t.Fatalf("status = %d, expected %d", recorder.Code, http.StatusBadRequest)
 	}
-	if !strings.Contains(recorder.Body.String(), "Invalid redirect_uri scheme") {
-		t.Fatalf("body = %q, expected Invalid redirect_uri scheme", recorder.Body.String())
+	if !strings.Contains(recorder.Body.String(), "invalid redirect_uri scheme") {
+		t.Fatalf("body = %q, expected invalid redirect_uri scheme", recorder.Body.String())
 	}
 }
 
