@@ -25,6 +25,13 @@ type Config struct {
     ServerURL    string // Your server's public URL
     RedirectURIs string // Allowed redirect URIs
 
+    // Optional - Service tokens for non-interactive clients
+    ServiceTokenEnabled       bool
+    ServiceTokenIssuer        string
+    ServiceTokenAudience      string
+    ServiceTokenPublicKeyPEM  string
+    ServiceTokenSubjectPrefix string // default: "svc-"
+
     // Optional - Logging
     Logger Logger // Custom logger implementation
 }
@@ -93,6 +100,12 @@ _, oauthOption, _ := oauth.WithOAuth(mux, cfg)
 - `MCP_PORT` - Server port (default: 8080)
 - `HTTPS_CERT_FILE` - TLS cert file (enables HTTPS)
 - `HTTPS_KEY_FILE` - TLS key file (enables HTTPS)
+- `SERVICE_TOKEN_ENABLED` - Enables asymmetric service-token validation
+- `SERVICE_TOKEN_ISSUER` - Expected service-token issuer
+- `SERVICE_TOKEN_AUDIENCE` - Expected service-token audience
+- `SERVICE_TOKEN_PUBLIC_KEY_PEM` - Public key PEM for service-token verification
+- `SERVICE_TOKEN_PUBLIC_KEY_PEM_B64` - Base64-encoded public key PEM
+- `SERVICE_TOKEN_SUBJECT_PREFIX` - Required service-token subject prefix (default: `svc-`)
 
 **Benefits:**
 
@@ -117,6 +130,28 @@ Provider: "okta"  // Use Okta OIDC validation
 ```
 
 **See:** [Provider Guides](providers/) for setup instructions
+
+## Optional Service Tokens
+
+Service-token auth runs alongside the configured OAuth provider. It lets headless agents authenticate with an asymmetric JWT instead of an interactive browser OAuth flow.
+
+```go
+cfg := &oauth.Config{
+    Provider: "okta",
+    Issuer:   "https://company.okta.com",
+    Audience: "https://company.okta.com",
+
+    ServiceTokenEnabled:       true,
+    ServiceTokenIssuer:        "agent-auth-service",
+    ServiceTokenAudience:      "api://example-mcp-server",
+    ServiceTokenPublicKeyPEM:  publicKeyPEM,
+    ServiceTokenSubjectPrefix: "svc-",
+}
+```
+
+Use `SERVICE_TOKEN_PUBLIC_KEY_PEM_B64` for Kubernetes/Terraform values to avoid multiline PEM escaping issues.
+
+**See:** [Service Tokens](SERVICE-TOKENS.md) for token claims, supported algorithms, and key handling.
 
 ### Audience
 

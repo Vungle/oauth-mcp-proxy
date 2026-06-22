@@ -60,13 +60,14 @@ func (s *Server) Middleware() func(server.ToolHandlerFunc) server.ToolHandlerFun
 				return nil, fmt.Errorf("authentication failed: %w", err)
 			}
 
-			// Cache the validation result (expire in 5 minutes)
-			expiresAt := time.Now().Add(5 * time.Minute)
-			s.cache.setCachedToken(tokenHash, user, expiresAt)
+			// Cache the validation result, but never beyond the token's own expiry.
+			if expiresAt, ok := cacheExpiresAtForToken(tokenString, time.Now()); ok {
+				s.cache.setCachedToken(tokenHash, user, expiresAt)
+			}
 
 			// Add user to context for downstream handlers
 			ctx = context.WithValue(ctx, userContextKey, user)
-			s.logger.Info("Authenticated user %s for tool: %s (cached for 5 minutes)", user.Username, req.Params.Name)
+			s.logger.Info("Authenticated user %s for tool: %s", user.Username, req.Params.Name)
 
 			return next(ctx, req)
 		}

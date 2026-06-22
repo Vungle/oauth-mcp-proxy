@@ -1,6 +1,7 @@
 package oauth
 
 import (
+	"encoding/base64"
 	"fmt"
 
 	"github.com/Vungle/oauth-mcp-proxy/provider"
@@ -27,6 +28,13 @@ type Config struct {
 
 	// Security
 	JWTSecret []byte // For HMAC provider and state signing
+
+	// Service token settings for non-interactive clients
+	ServiceTokenEnabled       bool
+	ServiceTokenIssuer        string
+	ServiceTokenAudience      string
+	ServiceTokenPublicKeyPEM  string
+	ServiceTokenSubjectPrefix string
 
 	// Optional - Logging
 	// Logger allows custom logging implementation. If nil, uses default logger
@@ -76,6 +84,24 @@ func (c *Config) Validate() error {
 		return fmt.Errorf("audience is required")
 	}
 
+	if c.ServiceTokenEnabled {
+		if c.ServiceTokenSubjectPrefix == "" {
+			c.ServiceTokenSubjectPrefix = "svc-"
+		}
+		if c.ServiceTokenIssuer == "" {
+			return fmt.Errorf("service token issuer is required when service token auth is enabled")
+		}
+		if c.ServiceTokenAudience == "" {
+			return fmt.Errorf("service token audience is required when service token auth is enabled")
+		}
+		if c.ServiceTokenPublicKeyPEM == "" {
+			return fmt.Errorf("service token public key PEM is required when service token auth is enabled")
+		}
+		if c.Issuer != "" && c.ServiceTokenIssuer == c.Issuer {
+			return fmt.Errorf("service token issuer must be distinct from OAuth issuer")
+		}
+	}
+
 	// Validate proxy mode requirements
 	if c.Mode == "proxy" {
 		if c.ClientID == "" {
@@ -122,11 +148,15 @@ func SetupOAuth(cfg *Config) (provider.TokenValidator, error) {
 func createValidator(cfg *Config, logger Logger) (provider.TokenValidator, error) {
 	// Convert root Config to provider.Config
 	providerCfg := &provider.Config{
-		Provider:  cfg.Provider,
-		Issuer:    cfg.Issuer,
-		Audience:  cfg.Audience,
-		JWTSecret: cfg.JWTSecret,
-		Logger:    logger,
+		Provider:                  cfg.Provider,
+		Issuer:                    cfg.Issuer,
+		Audience:                  cfg.Audience,
+		JWTSecret:                 cfg.JWTSecret,
+		ServiceTokenIssuer:        cfg.ServiceTokenIssuer,
+		ServiceTokenAudience:      cfg.ServiceTokenAudience,
+		ServiceTokenPublicKeyPEM:  cfg.ServiceTokenPublicKeyPEM,
+		ServiceTokenSubjectPrefix: cfg.ServiceTokenSubjectPrefix,
+		Logger:                    logger,
 	}
 
 	var validator provider.TokenValidator
@@ -141,6 +171,14 @@ func createValidator(cfg *Config, logger Logger) (provider.TokenValidator, error
 
 	if err := validator.Initialize(providerCfg); err != nil {
 		return nil, err
+	}
+
+	if cfg.ServiceTokenEnabled {
+		serviceTokenValidator := &provider.ServiceTokenValidator{}
+		if err := serviceTokenValidator.Initialize(providerCfg); err != nil {
+			return nil, err
+		}
+		validator = provider.NewRoutingValidator(validator, serviceTokenValidator, cfg.ServiceTokenIssuer)
 	}
 
 	return validator, nil
@@ -227,6 +265,16 @@ func (b *ConfigBuilder) WithJWTSecret(secret []byte) *ConfigBuilder {
 	return b
 }
 
+// WithServiceToken enables asymmetric service-token validation.
+func (b *ConfigBuilder) WithServiceToken(issuer, audience, publicKeyPEM, subjectPrefix string) *ConfigBuilder {
+	b.config.ServiceTokenEnabled = true
+	b.config.ServiceTokenIssuer = issuer
+	b.config.ServiceTokenAudience = audience
+	b.config.ServiceTokenPublicKeyPEM = publicKeyPEM
+	b.config.ServiceTokenSubjectPrefix = subjectPrefix
+	return b
+}
+
 // WithLogger sets the logger
 func (b *ConfigBuilder) WithLogger(logger Logger) *ConfigBuilder {
 	b.config.Logger = logger
@@ -290,8 +338,11 @@ func FromEnv() (*Config, error) {
 	}
 
 	jwtSecret := getEnv("JWT_SECRET", "")
+	serviceTokenEnabled := getEnv("SERVICE_TOKEN_ENABLED", "") == "true" ||
+		getEnv("SERVICE_TOKEN_ENABLED", "") == "1" ||
+		getEnv("SERVICE_TOKEN_ENABLED", "") == "yes"
 
-	return NewConfigBuilder().
+	builder := NewConfigBuilder().
 		WithMode(getEnv("OAUTH_MODE", "")).
 		WithProvider(getEnv("OAUTH_PROVIDER", "")).
 		WithRedirectURIs(getEnv("OAUTH_REDIRECT_URIS", "")).
@@ -301,6 +352,33 @@ func FromEnv() (*Config, error) {
 		WithClientID(getEnv("OIDC_CLIENT_ID", "")).
 		WithClientSecret(getEnv("OIDC_CLIENT_SECRET", "")).
 		WithServerURL(serverURL).
-		WithJWTSecret([]byte(jwtSecret)).
-		Build()
+		WithJWTSecret([]byte(jwtSecret))
+
+	if serviceTokenEnabled {
+		publicKeyPEM := getEnv("SERVICE_TOKEN_PUBLIC_KEY_PEM", "")
+		if publicKeyPEM == "" {
+			publicKeyPEM = decodeBase64Env("SERVICE_TOKEN_PUBLIC_KEY_PEM_B64")
+		}
+
+		builder.WithServiceToken(
+			getEnv("SERVICE_TOKEN_ISSUER", ""),
+			getEnv("SERVICE_TOKEN_AUDIENCE", ""),
+			publicKeyPEM,
+			getEnv("SERVICE_TOKEN_SUBJECT_PREFIX", ""),
+		)
+	}
+
+	return builder.Build()
+}
+
+func decodeBase64Env(key string) string {
+	value := getEnv(key, "")
+	if value == "" {
+		return ""
+	}
+	decoded, err := base64.StdEncoding.DecodeString(value)
+	if err != nil {
+		return ""
+	}
+	return string(decoded)
 }
