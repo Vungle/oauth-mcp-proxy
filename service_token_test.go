@@ -69,6 +69,31 @@ func TestServiceTokenValidationRS256(t *testing.T) {
 	}
 }
 
+func TestServiceTokenCacheDoesNotOutliveExpiration(t *testing.T) {
+	publicKeyPEM, privateKey := generateEd25519KeyPair(t)
+	server := newServiceTokenTestServer(t, publicKeyPEM)
+
+	exp := time.Now().Add(2 * time.Second).Unix()
+	token := signServiceToken(t, privateKey, jwt.MapClaims{
+		"iss": testServiceIssuer,
+		"aud": testServiceAudience,
+		"sub": "svc-example-agent",
+		"exp": exp,
+	})
+
+	if _, err := server.ValidateTokenCached(context.Background(), token); err != nil {
+		t.Fatalf("first ValidateTokenCached() error = %v", err)
+	}
+
+	if wait := time.Until(time.Unix(exp, 0).Add(100 * time.Millisecond)); wait > 0 {
+		time.Sleep(wait)
+	}
+
+	if _, err := server.ValidateTokenCached(context.Background(), token); err == nil {
+		t.Fatal("second ValidateTokenCached() error = nil, want expired token error")
+	}
+}
+
 func TestServiceTokenRejectsInvalidTokens(t *testing.T) {
 	publicKeyPEM, privateKey := generateEd25519KeyPair(t)
 	_, wrongPrivateKey := generateEd25519KeyPair(t)
@@ -135,6 +160,17 @@ func TestServiceTokenRejectsInvalidTokens(t *testing.T) {
 				"aud": testServiceAudience,
 				"sub": "example-agent",
 				"exp": time.Now().Add(time.Hour).Unix(),
+			},
+			key: privateKey,
+		},
+		{
+			name: "future issued at",
+			claims: jwt.MapClaims{
+				"iss": testServiceIssuer,
+				"aud": testServiceAudience,
+				"sub": "svc-example-agent",
+				"iat": time.Now().Add(time.Hour).Unix(),
+				"exp": time.Now().Add(2 * time.Hour).Unix(),
 			},
 			key: privateKey,
 		},
@@ -211,6 +247,27 @@ func TestServiceTokenConfigValidation(t *testing.T) {
 	}
 	if !strings.Contains(err.Error(), "service token public key PEM is required") {
 		t.Fatalf("Validate() error = %v, want missing public key error", err)
+	}
+}
+
+func TestServiceTokenIssuerMustBeDistinctFromOAuthIssuer(t *testing.T) {
+	publicKeyPEM, _ := generateEd25519KeyPair(t)
+	cfg := &Config{
+		Provider:                 "okta",
+		Issuer:                   testServiceIssuer,
+		Audience:                 testPrimaryAudience,
+		ServiceTokenEnabled:      true,
+		ServiceTokenIssuer:       testServiceIssuer,
+		ServiceTokenAudience:     testServiceAudience,
+		ServiceTokenPublicKeyPEM: publicKeyPEM,
+	}
+
+	err := cfg.Validate()
+	if err == nil {
+		t.Fatal("Validate() error = nil, want issuer collision error")
+	}
+	if !strings.Contains(err.Error(), "service token issuer must be distinct") {
+		t.Fatalf("Validate() error = %v, want issuer collision error", err)
 	}
 }
 

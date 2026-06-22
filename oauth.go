@@ -10,8 +10,11 @@ import (
 	"time"
 
 	"github.com/Vungle/oauth-mcp-proxy/provider"
+	"github.com/golang-jwt/jwt/v5"
 	mcpserver "github.com/mark3labs/mcp-go/server"
 )
+
+const tokenCacheTTL = 5 * time.Minute
 
 // Server represents an OAuth authentication server instance.
 // Each Server maintains its own token cache and validator, allowing
@@ -126,11 +129,36 @@ func (s *Server) ValidateTokenCached(ctx context.Context, token string) (*User, 
 		return nil, fmt.Errorf("authentication failed: %w", err)
 	}
 
-	expiresAt := time.Now().Add(5 * time.Minute)
-	s.cache.setCachedToken(tokenHash, user, expiresAt)
+	now := time.Now()
+	if expiresAt, ok := cacheExpiresAtForToken(token, now); ok {
+		s.cache.setCachedToken(tokenHash, user, expiresAt)
+		s.logger.Info("Authenticated user %s (cached until %s)", user.Username, expiresAt.Format(time.RFC3339))
+	} else {
+		s.logger.Info("Authenticated user %s (not cached because token is expired)", user.Username)
+	}
 
-	s.logger.Info("Authenticated user %s (cached for 5 minutes)", user.Username)
 	return user, nil
+}
+
+func cacheExpiresAtForToken(tokenString string, now time.Time) (time.Time, bool) {
+	expiresAt := now.Add(tokenCacheTTL)
+
+	tokenString = strings.TrimPrefix(tokenString, "Bearer ")
+	claims := jwt.RegisteredClaims{}
+	if _, _, err := jwt.NewParser().ParseUnverified(tokenString, &claims); err != nil {
+		return expiresAt, true
+	}
+	if claims.ExpiresAt == nil {
+		return expiresAt, true
+	}
+	if !claims.ExpiresAt.Time.After(now) {
+		return time.Time{}, false
+	}
+	if claims.ExpiresAt.Time.Before(expiresAt) {
+		return claims.ExpiresAt.Time, true
+	}
+
+	return expiresAt, true
 }
 
 // GetAuthorizationServerMetadataURL returns the OAuth 2.0 authorization server metadata URL

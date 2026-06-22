@@ -159,6 +159,7 @@ func (v *ServiceTokenValidator) ValidateToken(ctx context.Context, tokenString s
 		jwt.WithIssuer(v.issuer),
 		jwt.WithAudience(v.audience),
 		jwt.WithExpirationRequired(),
+		jwt.WithIssuedAt(),
 	)
 	if err != nil {
 		return nil, fmt.Errorf("failed to parse and validate service token: %w", err)

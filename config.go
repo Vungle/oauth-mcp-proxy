@@ -97,6 +97,9 @@ func (c *Config) Validate() error {
 		if c.ServiceTokenPublicKeyPEM == "" {
 			return fmt.Errorf("service token public key PEM is required when service token auth is enabled")
 		}
+		if c.Issuer != "" && c.ServiceTokenIssuer == c.Issuer {
+			return fmt.Errorf("service token issuer must be distinct from OAuth issuer")
+		}
 	}
 
 	// Validate proxy mode requirements
