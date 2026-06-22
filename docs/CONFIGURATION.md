@@ -360,6 +360,17 @@ RedirectURIs: "https://your-server.com/oauth/callback"
 
 Server uses this URI with provider. For security, client redirects must be localhost only.
 
+To support a native client callback in fixed redirect mode, keep `RedirectURIs`
+as the server callback and add exact client callbacks separately:
+
+```go
+RedirectURIs:              "https://your-server.com/oauth/callback"
+AllowedClientRedirectURIs: "cursor://anysphere.cursor-mcp/oauth/callback"
+```
+
+This preserves dynamic localhost callbacks for development tools while allowing
+only the configured native client callbacks.
+
 **Multiple URIs (Allowlist):**
 
 ```go
@@ -554,6 +565,7 @@ OAUTH_CLIENT_ID=your-client-id
 OAUTH_CLIENT_SECRET=your-client-secret
 OAUTH_SERVER_URL=https://your-server.com
 OAUTH_REDIRECT_URIS=https://your-server.com/oauth/callback
+OAUTH_ALLOWED_CLIENT_REDIRECT_URIS=cursor://anysphere.cursor-mcp/oauth/callback
 ```
 
 Load in code:
@@ -572,6 +584,7 @@ func main() {
         ClientSecret: os.Getenv("OAUTH_CLIENT_SECRET"),
         ServerURL:    os.Getenv("OAUTH_SERVER_URL"),
         RedirectURIs: os.Getenv("OAUTH_REDIRECT_URIS"),
+        AllowedClientRedirectURIs: os.Getenv("OAUTH_ALLOWED_CLIENT_REDIRECT_URIS"),
         JWTSecret:    []byte(os.Getenv("JWT_SECRET")),
     })
 }
