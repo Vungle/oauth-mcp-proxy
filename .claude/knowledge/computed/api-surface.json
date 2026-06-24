@@ -1,0 +1,380 @@
+{
+  "generated": "2026-03-20T03:16:45Z",
+  "module": "github.com/Vungle/oauth-mcp-proxy",
+  "packages": [
+    {
+      "path": "github.com/Vungle/oauth-mcp-proxy",
+      "rel_dir": ".",
+      "types": [
+        {
+          "name": "CachedToken",
+          "kind": "struct"
+        },
+        {
+          "name": "Config",
+          "kind": "struct",
+          "methods": [
+            {
+              "name": "Validate",
+              "signature": "func() error"
+            }
+          ]
+        },
+        {
+          "name": "ConfigBuilder",
+          "kind": "struct",
+          "methods": [
+            {
+              "name": "WithMode",
+              "signature": "func(mode string) *github.com/Vungle/oauth-mcp-proxy.ConfigBuilder"
+            },
+            {
+              "name": "WithProvider",
+              "signature": "func(provider string) *github.com/Vungle/oauth-mcp-proxy.ConfigBuilder"
+            },
+            {
+              "name": "WithRedirectURIs",
+              "signature": "func(uris string) *github.com/Vungle/oauth-mcp-proxy.ConfigBuilder"
+            },
+            {
+              "name": "WithIssuer",
+              "signature": "func(issuer string) *github.com/Vungle/oauth-mcp-proxy.ConfigBuilder"
+            },
+            {
+              "name": "WithAudience",
+              "signature": "func(audience string) *github.com/Vungle/oauth-mcp-proxy.ConfigBuilder"
+            },
+            {
+              "name": "WithClientID",
+              "signature": "func(clientID string) *github.com/Vungle/oauth-mcp-proxy.ConfigBuilder"
+            },
+            {
+              "name": "WithClientSecret",
+              "signature": "func(secret string) *github.com/Vungle/oauth-mcp-proxy.ConfigBuilder"
+            },
+            {
+              "name": "WithJWTSecret",
+              "signature": "func(secret []byte) *github.com/Vungle/oauth-mcp-proxy.ConfigBuilder"
+            },
+            {
+              "name": "WithLogger",
+              "signature": "func(logger github.com/Vungle/oauth-mcp-proxy.Logger) *github.com/Vungle/oauth-mcp-proxy.ConfigBuilder"
+            },
+            {
+              "name": "WithServerURL",
+              "signature": "func(url string) *github.com/Vungle/oauth-mcp-proxy.ConfigBuilder"
+            },
+            {
+              "name": "WithHost",
+              "signature": "func(host string) *github.com/Vungle/oauth-mcp-proxy.ConfigBuilder"
+            },
+            {
+              "name": "WithPort",
+              "signature": "func(port string) *github.com/Vungle/oauth-mcp-proxy.ConfigBuilder"
+            },
+            {
+              "name": "WithTLS",
+              "signature": "func(useTLS bool) *github.com/Vungle/oauth-mcp-proxy.ConfigBuilder"
+            },
+            {
+              "name": "Build",
+              "signature": "func() (*github.com/Vungle/oauth-mcp-proxy.Config, error)"
+            }
+          ]
+        },
+        {
+          "name": "Endpoint",
+          "kind": "struct"
+        },
+        {
+          "name": "Logger",
+          "kind": "interface"
+        },
+        {
+          "name": "OAuth2Config",
+          "kind": "struct"
+        },
+        {
+          "name": "OAuth2Handler",
+          "kind": "struct",
+          "methods": [
+            {
+              "name": "GetConfig",
+              "signature": "func() *github.com/Vungle/oauth-mcp-proxy.OAuth2Config"
+            },
+            {
+              "name": "HandleJWKS",
+              "signature": "func(w net/http.ResponseWriter, r *net/http.Request)"
+            },
+            {
+              "name": "HandleAuthorize",
+              "signature": "func(w net/http.ResponseWriter, r *net/http.Request)"
+            },
+            {
+              "name": "HandleCallback",
+              "signature": "func(w net/http.ResponseWriter, r *net/http.Request)"
+            },
+            {
+              "name": "HandleToken",
+              "signature": "func(w net/http.ResponseWriter, r *net/http.Request)"
+            },
+            {
+              "name": "HandleMetadata",
+              "signature": "func(w net/http.ResponseWriter, r *net/http.Request)"
+            },
+            {
+              "name": "HandleAuthorizationServerMetadata",
+              "signature": "func(w net/http.ResponseWriter, r *net/http.Request)"
+            },
+            {
+              "name": "HandleProtectedResourceMetadata",
+              "signature": "func(w net/http.ResponseWriter, r *net/http.Request)"
+            },
+            {
+              "name": "HandleRegister",
+              "signature": "func(w net/http.ResponseWriter, r *net/http.Request)"
+            },
+            {
+              "name": "HandleCallbackRedirect",
+              "signature": "func(w net/http.ResponseWriter, r *net/http.Request)"
+            },
+            {
+              "name": "HandleOIDCDiscovery",
+              "signature": "func(w net/http.ResponseWriter, r *net/http.Request)"
+            },
+            {
+              "name": "GetAuthorizationServerMetadata",
+              "signature": "func() map[string]interface{}"
+            }
+          ]
+        },
+        {
+          "name": "Server",
+          "kind": "struct",
+          "methods": [
+            {
+              "name": "Middleware",
+              "signature": "func() func(github.com/mark3labs/mcp-go/server.ToolHandlerFunc) github.com/mark3labs/mcp-go/server.ToolHandlerFunc"
+            },
+            {
+              "name": "RegisterHandlers",
+              "signature": "func(mux *net/http.ServeMux)"
+            },
+            {
+              "name": "ValidateTokenCached",
+              "signature": "func(ctx context.Context, token string) (*github.com/Vungle/oauth-mcp-proxy.User, error)"
+            },
+            {
+              "name": "GetAuthorizationServerMetadataURL",
+              "signature": "func() string"
+            },
+            {
+              "name": "GetProtectedResourceMetadataURL",
+              "signature": "func() string"
+            },
+            {
+              "name": "GetOIDCDiscoveryURL",
+              "signature": "func() string"
+            },
+            {
+              "name": "GetCallbackURL",
+              "signature": "func() string"
+            },
+            {
+              "name": "GetAuthorizeURL",
+              "signature": "func() string"
+            },
+            {
+              "name": "GetTokenURL",
+              "signature": "func() string"
+            },
+            {
+              "name": "GetRegisterURL",
+              "signature": "func() string"
+            },
+            {
+              "name": "GetAllEndpoints",
+              "signature": "func() []github.com/Vungle/oauth-mcp-proxy.Endpoint"
+            },
+            {
+              "name": "LogStartup",
+              "signature": "func(useTLS bool)"
+            },
+            {
+              "name": "GetStatusString",
+              "signature": "func(useTLS bool) string"
+            },
+            {
+              "name": "GetHTTPServerOptions",
+              "signature": "func() []github.com/mark3labs/mcp-go/server.StreamableHTTPOption"
+            },
+            {
+              "name": "WrapHandler",
+              "signature": "func(next net/http.Handler) net/http.Handler"
+            },
+            {
+              "name": "WrapHandlerFunc",
+              "signature": "func(next net/http.HandlerFunc) net/http.HandlerFunc"
+            },
+            {
+              "name": "WrapMCPEndpoint",
+              "signature": "func(handler net/http.Handler) net/http.HandlerFunc"
+            },
+            {
+              "name": "Return401",
+              "signature": "func(w net/http.ResponseWriter)"
+            },
+            {
+              "name": "Return401InvalidToken",
+              "signature": "func(w net/http.ResponseWriter)"
+            }
+          ]
+        },
+        {
+          "name": "TokenCache",
+          "kind": "struct"
+        }
+      ],
+      "functions": [
+        {
+          "name": "AutoDetectServerURL",
+          "signature": "func(host string, port string, useTLS bool) string"
+        },
+        {
+          "name": "CreateHTTPContextFunc",
+          "signature": "func() func(context.Context, *net/http.Request) context.Context"
+        },
+        {
+          "name": "CreateOAuth2Handler",
+          "signature": "func(cfg *github.com/Vungle/oauth-mcp-proxy.Config, version string, logger github.com/Vungle/oauth-mcp-proxy.Logger) *github.com/Vungle/oauth-mcp-proxy.OAuth2Handler"
+        },
+        {
+          "name": "CreateRequestAuthHook",
+          "signature": "func(validator provider.TokenValidator) func(context.Context, interface{}, interface{}) error"
+        },
+        {
+          "name": "FromEnv",
+          "signature": "func() (*github.com/Vungle/oauth-mcp-proxy.Config, error)"
+        },
+        {
+          "name": "GetOAuthToken",
+          "signature": "func(ctx context.Context) (string, bool)"
+        },
+        {
+          "name": "GetUserFromContext",
+          "signature": "func(ctx context.Context) (*github.com/Vungle/oauth-mcp-proxy.User, bool)"
+        },
+        {
+          "name": "NewConfigBuilder",
+          "signature": "func() *github.com/Vungle/oauth-mcp-proxy.ConfigBuilder"
+        },
+        {
+          "name": "NewOAuth2ConfigFromConfig",
+          "signature": "func(cfg *github.com/Vungle/oauth-mcp-proxy.Config, version string) *github.com/Vungle/oauth-mcp-proxy.OAuth2Config"
+        },
+        {
+          "name": "NewOAuth2Handler",
+          "signature": "func(cfg *github.com/Vungle/oauth-mcp-proxy.OAuth2Config, logger github.com/Vungle/oauth-mcp-proxy.Logger) *github.com/Vungle/oauth-mcp-proxy.OAuth2Handler"
+        },
+        {
+          "name": "NewServer",
+          "signature": "func(cfg *github.com/Vungle/oauth-mcp-proxy.Config) (*github.com/Vungle/oauth-mcp-proxy.Server, error)"
+        },
+        {
+          "name": "OAuthMiddleware",
+          "signature": "func(validator provider.TokenValidator, enabled bool) func(github.com/mark3labs/mcp-go/server.ToolHandlerFunc) github.com/mark3labs/mcp-go/server.ToolHandlerFunc"
+        },
+        {
+          "name": "SetupOAuth",
+          "signature": "func(cfg *github.com/Vungle/oauth-mcp-proxy.Config) (provider.TokenValidator, error)"
+        },
+        {
+          "name": "WithOAuth",
+          "signature": "func(mux *net/http.ServeMux, cfg *github.com/Vungle/oauth-mcp-proxy.Config) (*github.com/Vungle/oauth-mcp-proxy.Server, github.com/mark3labs/mcp-go/server.ServerOption, error)"
+        },
+        {
+          "name": "WithOAuthToken",
+          "signature": "func(ctx context.Context, token string) context.Context"
+        },
+        {
+          "name": "WithUser",
+          "signature": "func(ctx context.Context, user *github.com/Vungle/oauth-mcp-proxy.User) context.Context"
+        }
+      ]
+    },
+    {
+      "path": "github.com/Vungle/oauth-mcp-proxy/mark3labs",
+      "rel_dir": "mark3labs",
+      "functions": [
+        {
+          "name": "NewMiddleware",
+          "signature": "func(s *github.com/Vungle/oauth-mcp-proxy.Server) func(github.com/mark3labs/mcp-go/server.ToolHandlerFunc) github.com/mark3labs/mcp-go/server.ToolHandlerFunc"
+        },
+        {
+          "name": "WithOAuth",
+          "signature": "func(mux *net/http.ServeMux, cfg *github.com/Vungle/oauth-mcp-proxy.Config) (*github.com/Vungle/oauth-mcp-proxy.Server, github.com/mark3labs/mcp-go/server.ServerOption, error)"
+        }
+      ]
+    },
+    {
+      "path": "github.com/Vungle/oauth-mcp-proxy/mcp",
+      "rel_dir": "mcp",
+      "functions": [
+        {
+          "name": "WithOAuth",
+          "signature": "func(mux *net/http.ServeMux, cfg *github.com/Vungle/oauth-mcp-proxy.Config, mcpServer *github.com/modelcontextprotocol/go-sdk/mcp.Server) (*github.com/Vungle/oauth-mcp-proxy.Server, net/http.Handler, error)"
+        }
+      ]
+    },
+    {
+      "path": "github.com/Vungle/oauth-mcp-proxy/provider",
+      "rel_dir": "provider",
+      "types": [
+        {
+          "name": "Config",
+          "kind": "struct"
+        },
+        {
+          "name": "HMACValidator",
+          "kind": "struct",
+          "methods": [
+            {
+              "name": "Initialize",
+              "signature": "func(cfg *provider.Config) error"
+            },
+            {
+              "name": "ValidateToken",
+              "signature": "func(ctx context.Context, tokenString string) (*provider.User, error)"
+            }
+          ]
+        },
+        {
+          "name": "Logger",
+          "kind": "interface"
+        },
+        {
+          "name": "OIDCValidator",
+          "kind": "struct",
+          "methods": [
+            {
+              "name": "Initialize",
+              "signature": "func(cfg *provider.Config) error"
+            },
+            {
+              "name": "ValidateToken",
+              "signature": "func(ctx context.Context, tokenString string) (*provider.User, error)"
+            }
+          ]
+        },
+        {
+          "name": "TokenValidator",
+          "kind": "interface"
+        },
+        {
+          "name": "User",
+          "kind": "struct"
+        }
+      ]
+    }
+  ]
+}

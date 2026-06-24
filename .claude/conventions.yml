@@ -1,0 +1,63 @@
+# oauth-mcp-proxy conventions
+
+adapter_pattern:
+  description: "SDK-agnostic core with SDK-specific adapters"
+  rules:
+    - "Core package (root) contains all OAuth logic and MUST NOT import any MCP SDK"
+    - "mark3labs/ adapter imports github.com/mark3labs/mcp-go and wraps core as ServerOption"
+    - "mcp/ adapter imports github.com/modelcontextprotocol/go-sdk and wraps core as http.Handler"
+    - "Adapters call oauth.NewServer(), RegisterHandlers(), ValidateTokenCached() — never re-implement validation"
+    - "New SDK adapters go in their own top-level directory with a single WithOAuth() entry point"
+
+provider_abstraction:
+  description: "TokenValidator interface with pluggable provider implementations"
+  rules:
+    - "All providers implement provider.TokenValidator (ValidateToken + Initialize)"
+    - "HMACValidator for dev/testing — validates JWT with shared secret, no network I/O"
+    - "OIDCValidator for prod — validates via OIDC discovery and JWKS (Okta, Google, Azure)"
+    - "createValidator() in config.go is the only factory — switch on cfg.Provider"
+    - "New providers: add to provider/provider.go, update createValidator() switch, add docs/providers/*.md"
+
+context_propagation:
+  description: "Two-phase context: HTTP layer adds token, middleware validates and adds User"
+  rules:
+    - "Phase 1: CreateHTTPContextFunc() extracts Bearer token -> WithOAuthToken(ctx, token)"
+    - "Phase 2: Middleware calls GetOAuthToken(ctx) -> ValidateTokenCached() -> WithUser(ctx, user)"
+    - "Tool handlers access user via GetUserFromContext(ctx) — never parse tokens directly"
+    - "Context keys are unexported typed constants (contextKey string type)"
+    - "Never use context.WithValue with string keys — always use the typed helpers"
+
+token_caching:
+  description: "5-minute TTL cache with SHA-256 hash keys and sync.RWMutex"
+  rules:
+    - "Cache key is full SHA-256 hex of the raw token — never store raw tokens"
+    - "TTL is 5 minutes (hardcoded in ValidateTokenCached and Middleware)"
+    - "TokenCache uses sync.RWMutex — RLock for reads, Lock for writes"
+    - "Expired tokens cleaned lazily via goroutine in getCachedToken (deleteExpiredToken)"
+    - "Each Server instance has its own cache — no global shared state"
+
+configuration:
+  description: "Config struct with ConfigBuilder fluent API and FromEnv() factory"
+  rules:
+    - "Config struct for direct construction, ConfigBuilder for fluent API"
+    - "Build() validates config via Config.Validate() before returning"
+    - "FromEnv() reads env vars: OAUTH_MODE, OAUTH_PROVIDER, OIDC_ISSUER, OIDC_AUDIENCE, etc."
+    - "Mode auto-detected: ClientID present -> proxy, absent -> native"
+    - "Audience is always required regardless of provider"
+
+security:
+  description: "Security-first design for OAuth token handling"
+  rules:
+    - "Never log raw tokens — only log SHA-256 hash prefix (tokenHash[:16])"
+    - "401 responses follow RFC 6750: WWW-Authenticate Bearer with error codes"
+    - "Two error codes: invalid_request (missing token) and invalid_token (validation failed)"
+    - "Audience validation is explicit in both HMAC and OIDC validators"
+    - "Redirect URI validation requires explicit allowlist (RedirectURIs config)"
+    - "OIDC requires TLS 1.2+ (MinVersion: tls.VersionTLS12)"
+
+testing:
+  description: "oauth-mcp-proxy specific test organization"
+  rules:
+    - "Mock validators implement provider.TokenValidator interface"
+    - "Test files: api_test.go, security_test.go, integration_test.go, config_test.go"
+    - "Provider tests in provider/provider_test.go"

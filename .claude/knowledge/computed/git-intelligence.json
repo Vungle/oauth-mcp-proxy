@@ -1,0 +1,24 @@
+{
+  "generated": "2026-03-23T00:00:00Z",
+  "period_days": 180,
+  "since": "2025-09-24",
+  "recent_activity": {
+    "total_commits": 39,
+    "unique_authors": 3,
+    "fix_bug_commits": 11,
+    "first_commit_date": "2025-10-17",
+    "last_commit_date": "2026-03-20",
+    "commits_per_month": {
+      "2025-10": 27,      "2025-11": 5,      "2025-12": 6,      "2026-03": 1
+    }
+  },
+  "top_authors": [
+    {"author": "Tommy Nguyen", "commits": 32},    {"author": "Zhong Liang Ong", "commits": 6},    {"author": "Mian Leow", "commits": 1}
+  ],
+  "file_churn": [
+    {"file": "README.md", "commits": 16},    {"file": "oauth.go", "commits": 10},    {"file": "middleware.go", "commits": 8},    {"file": "config.go", "commits": 8},    {"file": "examples/README.md", "commits": 7},    {"file": "docs/implementation.md", "commits": 7},    {"file": "examples/simple/main.go", "commits": 6},    {"file": "go.mod", "commits": 5},    {"file": "docs/plan.md", "commits": 5},    {"file": "CLAUDE.md", "commits": 5},    {"file": "metadata.go", "commits": 4},    {"file": "handlers.go", "commits": 4},    {"file": "docs/providers/OKTA.md", "commits": 4},    {"file": "docs/providers/HMAC.md", "commits": 4},    {"file": "docs/providers/GOOGLE.md", "commits": 4},    {"file": "docs/providers/AZURE.md", "commits": 4},    {"file": "docs/CLIENT-SETUP.md", "commits": 4},    {"file": ".github/workflows/test.yml", "commits": 4},    {"file": ".github/workflows/cursor.yml", "commits": 4},    {"file": "security_test.go", "commits": 3},    {"file": "provider/provider.go", "commits": 3},    {"file": "mcp/oauth.go", "commits": 3},    {"file": "mark3labs/oauth.go", "commits": 3},    {"file": "examples/mark3labs/simple/main.go", "commits": 3},    {"file": "examples/mark3labs/advanced/main.go", "commits": 3},    {"file": "docs/TROUBLESHOOTING.md", "commits": 3},    {"file": "docs/MIGRATION.md", "commits": 3},    {"file": "docs/mcpoauth-mvp-scope.md", "commits": 3},    {"file": "context_propagation_test.go", "commits": 3},    {"file": "api_test.go", "commits": 3},    {"file": "security_scenarios_test.go", "commits": 2},    {"file": "providers.go", "commits": 2},    {"file": "middleware_compatibility_test.go", "commits": 2},    {"file": "metadata_test.go", "commits": 2},    {"file": "mark3labs/middleware.go", "commits": 2}
+  ],
+  "bug_hotspots": [
+    {"file": "oauth.go", "fix_commits": 5},    {"file": "README.md", "fix_commits": 4},    {"file": "middleware.go", "fix_commits": 4},    {"file": "examples/simple/main.go", "fix_commits": 3},    {"file": "examples/README.md", "fix_commits": 3},    {"file": "docs/TROUBLESHOOTING.md", "fix_commits": 3},    {"file": "docs/providers/OKTA.md", "fix_commits": 3},    {"file": "docs/providers/HMAC.md", "fix_commits": 3},    {"file": "docs/providers/GOOGLE.md", "fix_commits": 3},    {"file": "docs/providers/AZURE.md", "fix_commits": 3},    {"file": "docs/MIGRATION.md", "fix_commits": 3},    {"file": "docs/CLIENT-SETUP.md", "fix_commits": 3},    {"file": "config.go", "fix_commits": 3},    {"file": "mcp/oauth.go", "fix_commits": 2},    {"file": "mark3labs/oauth.go", "fix_commits": 2},    {"file": "examples/mark3labs/simple/main.go", "fix_commits": 2},    {"file": "examples/mark3labs/advanced/main.go", "fix_commits": 2},    {"file": "docs/SECURITY.md", "fix_commits": 2},    {"file": "docs/oauth.md", "fix_commits": 2},    {"file": "docs/mcpoauth-mvp-scope.md", "fix_commits": 2}
+  ]
+}

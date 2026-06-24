@@ -1,0 +1,183 @@
+{
+  "generated": "2026-03-20T03:16:46Z",
+  "module": "github.com/Vungle/oauth-mcp-proxy",
+  "summary": {
+    "total_goroutines": 1,
+    "total_channels": 0,
+    "total_mutexes": 11,
+    "total_contexts": 11,
+    "packages_with_concurrency": 2
+  },
+  "goroutines": [
+    {
+      "file": "cache.go",
+      "line": 37,
+      "function": "*TokenCache.getCachedToken",
+      "expr": "tc.deleteExpiredToken"
+    }
+  ],
+  "channels": null,
+  "mutexes": [
+    {
+      "file": "provider/provider.go",
+      "line": 50,
+      "name": "secretOnce",
+      "type": "Once",
+      "action": "declaration"
+    },
+    {
+      "file": "provider/provider.go",
+      "line": 63,
+      "name": "v.secretOnce",
+      "type": "Once",
+      "action": "Do"
+    },
+    {
+      "file": "cache.go",
+      "line": 15,
+      "name": "mu",
+      "type": "RWMutex",
+      "action": "declaration"
+    },
+    {
+      "file": "cache.go",
+      "line": 27,
+      "name": "tc.mu",
+      "type": "RWMutex",
+      "action": "RLock"
+    },
+    {
+      "file": "cache.go",
+      "line": 31,
+      "name": "tc.mu",
+      "type": "RWMutex",
+      "action": "RUnlock"
+    },
+    {
+      "file": "cache.go",
+      "line": 36,
+      "name": "tc.mu",
+      "type": "RWMutex",
+      "action": "RUnlock"
+    },
+    {
+      "file": "cache.go",
+      "line": 41,
+      "name": "tc.mu",
+      "type": "RWMutex",
+      "action": "RUnlock"
+    },
+    {
+      "file": "cache.go",
+      "line": 47,
+      "name": "tc.mu",
+      "type": "Mutex",
+      "action": "Lock"
+    },
+    {
+      "file": "cache.go",
+      "line": 48,
+      "name": "tc.mu",
+      "type": "Mutex",
+      "action": "Unlock"
+    },
+    {
+      "file": "cache.go",
+      "line": 57,
+      "name": "tc.mu",
+      "type": "Mutex",
+      "action": "Lock"
+    },
+    {
+      "file": "cache.go",
+      "line": 58,
+      "name": "tc.mu",
+      "type": "Mutex",
+      "action": "Unlock"
+    }
+  ],
+  "contexts": [
+    {
+      "file": "provider/provider.go",
+      "line": 176,
+      "function": "*OIDCValidator.Initialize",
+      "pattern": "WithTimeout"
+    },
+    {
+      "file": "provider/provider.go",
+      "line": 176,
+      "function": "*OIDCValidator.Initialize",
+      "pattern": "Background"
+    },
+    {
+      "file": "provider/provider.go",
+      "line": 225,
+      "function": "*OIDCValidator.ValidateToken",
+      "pattern": "WithTimeout"
+    },
+    {
+      "file": "context.go",
+      "line": 15,
+      "function": "WithOAuthToken",
+      "pattern": "WithValue"
+    },
+    {
+      "file": "context.go",
+      "line": 26,
+      "function": "WithUser",
+      "pattern": "WithValue"
+    },
+    {
+      "file": "handlers.go",
+      "line": 132,
+      "function": "discoverOIDCEndpoints",
+      "pattern": "WithTimeout"
+    },
+    {
+      "file": "handlers.go",
+      "line": 132,
+      "function": "discoverOIDCEndpoints",
+      "pattern": "Background"
+    },
+    {
+      "file": "handlers.go",
+      "line": 551,
+      "function": "*OAuth2Handler.HandleToken",
+      "pattern": "Background"
+    },
+    {
+      "file": "handlers.go",
+      "line": 562,
+      "function": "*OAuth2Handler.HandleToken",
+      "pattern": "WithValue"
+    },
+    {
+      "file": "middleware.go",
+      "line": 47,
+      "function": "*Server.Middleware",
+      "pattern": "WithValue"
+    },
+    {
+      "file": "middleware.go",
+      "line": 68,
+      "function": "*Server.Middleware",
+      "pattern": "WithValue"
+    }
+  ],
+  "package_summary": [
+    {
+      "package": ".",
+      "goroutines": 1,
+      "channels": 0,
+      "mutexes": 9,
+      "contexts": 8
+    },
+    {
+      "package": "provider",
+      "goroutines": 0,
+      "channels": 0,
+      "mutexes": 2,
+      "contexts": 3
+    }
+  ]
+}

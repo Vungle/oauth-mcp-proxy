@@ -1,0 +1,396 @@
+{
+  "generated": "2026-03-20T03:16:48Z",
+  "description": "Compact index of oauth-mcp-proxy computed knowledge artifacts. Load full artifacts for detail.",
+  "type_index": {
+    "total_types": 15,
+    "total_functions": 19,
+    "total_packages": 4,
+    "top_packages": [
+      {
+        "pkg": "github.com/Vungle/oauth-mcp-proxy",
+        "structs": 8,
+        "interfaces": 1,
+        "functions": 16
+      },
+      {
+        "pkg": "provider",
+        "structs": 4,
+        "interfaces": 2,
+        "functions": 0
+      },
+      {
+        "pkg": "mark3labs",
+        "structs": 0,
+        "interfaces": 0,
+        "functions": 2
+      },
+      {
+        "pkg": "mcp",
+        "structs": 0,
+        "interfaces": 0,
+        "functions": 1
+      }
+    ],
+    "full_artifact": "type-index.json"
+  },
+  "interface_map": {
+    "total_interfaces": 3,
+    "top_by_implementors": [
+      {
+        "name": "TokenValidator",
+        "package": "provider",
+        "methods": 2,
+        "implementors": 2
+      },
+      {
+        "name": "Logger",
+        "package": "github.com/Vungle/oauth-mcp-proxy",
+        "methods": 4,
+        "implementors": 1
+      },
+      {
+        "name": "Logger",
+        "package": "provider",
+        "methods": 4,
+        "implementors": 1
+      }
+    ],
+    "full_artifact": "interface-map.json"
+  },
+  "internal_deps": {
+    "total_packages": 8,
+    "most_depended_on": [
+      {
+        "pkg": ".",
+        "imported_by_count": 6
+      },
+      {
+        "pkg": "mark3labs",
+        "imported_by_count": 2
+      },
+      {
+        "pkg": "mcp",
+        "imported_by_count": 2
+      },
+      {
+        "pkg": "provider",
+        "imported_by_count": 1
+      },
+      {
+        "pkg": "examples/mark3labs/advanced",
+        "imported_by_count": 0
+      },
+      {
+        "pkg": "examples/mark3labs/simple",
+        "imported_by_count": 0
+      },
+      {
+        "pkg": "examples/official/advanced",
+        "imported_by_count": 0
+      },
+      {
+        "pkg": "examples/official/simple",
+        "imported_by_count": 0
+      }
+    ],
+    "most_dependencies": [
+      {
+        "pkg": "examples/mark3labs/advanced",
+        "imports_count": 2
+      },
+      {
+        "pkg": "examples/mark3labs/simple",
+        "imports_count": 2
+      },
+      {
+        "pkg": "examples/official/advanced",
+        "imports_count": 2
+      },
+      {
+        "pkg": "examples/official/simple",
+        "imports_count": 2
+      },
+      {
+        "pkg": ".",
+        "imports_count": 1
+      },
+      {
+        "pkg": "mark3labs",
+        "imports_count": 1
+      },
+      {
+        "pkg": "mcp",
+        "imports_count": 1
+      },
+      {
+        "pkg": "provider",
+        "imports_count": 0
+      }
+    ],
+    "full_artifact": "internal-deps.json"
+  },
+  "git_intelligence": {
+    "period_days": 180,
+    "top_churn_files": [
+      {
+        "file": "state_test.go",
+        "commits": 1,
+        "lines_added": 158,
+        "lines_deleted": 0
+      },
+      {
+        "file": "security_test.go",
+        "commits": 1,
+        "lines_added": 427,
+        "lines_deleted": 0
+      },
+      {
+        "file": "provider/provider.go",
+        "commits": 1,
+        "lines_added": 346,
+        "lines_deleted": 0
+      },
+      {
+        "file": "provider/provider_test.go",
+        "commits": 1,
+        "lines_added": 373,
+        "lines_deleted": 0
+      },
+      {
+        "file": "oauth.go",
+        "commits": 1,
+        "lines_added": 447,
+        "lines_deleted": 0
+      },
+      {
+        "file": "middleware.go",
+        "commits": 1,
+        "lines_added": 158,
+        "lines_deleted": 0
+      },
+      {
+        "file": "middleware_compatibility_test.go",
+        "commits": 1,
+        "lines_added": 226,
+        "lines_deleted": 0
+      },
+      {
+        "file": "metadata.go",
+        "commits": 1,
+        "lines_added": 322,
+        "lines_deleted": 0
+      },
+      {
+        "file": "metadata_test.go",
+        "commits": 1,
+        "lines_added": 231,
+        "lines_deleted": 0
+      },
+      {
+        "file": "mcp/oauth.go",
+        "commits": 1,
+        "lines_added": 124,
+        "lines_deleted": 0
+      },
+      {
+        "file": "mark3labs/oauth.go",
+        "commits": 1,
+        "lines_added": 52,
+        "lines_deleted": 0
+      },
+      {
+        "file": "mark3labs/middleware.go",
+        "commits": 1,
+        "lines_added": 40,
+        "lines_deleted": 0
+      },
+      {
+        "file": "logger.go",
+        "commits": 1,
+        "lines_added": 46,
+        "lines_deleted": 0
+      },
+      {
+        "file": "integration_test.go",
+        "commits": 1,
+        "lines_added": 351,
+        "lines_deleted": 0
+      },
+      {
+        "file": "handlers.go",
+        "commits": 1,
+        "lines_added": 812,
+        "lines_deleted": 0
+      }
+    ],
+    "top_bug_hotspots": [
+      {
+        "file": "state_test.go",
+        "fix_commits": 1
+      },
+      {
+        "file": "security_test.go",
+        "fix_commits": 1
+      },
+      {
+        "file": "provider/provider.go",
+        "fix_commits": 1
+      },
+      {
+        "file": "provider/provider_test.go",
+        "fix_commits": 1
+      },
+      {
+        "file": "oauth.go",
+        "fix_commits": 1
+      },
+      {
+        "file": "middleware.go",
+        "fix_commits": 1
+      },
+      {
+        "file": "middleware_compatibility_test.go",
+        "fix_commits": 1
+      },
+      {
+        "file": "metadata.go",
+        "fix_commits": 1
+      },
+      {
+        "file": "metadata_test.go",
+        "fix_commits": 1
+      },
+      {
+        "file": "mcp/oauth.go",
+        "fix_commits": 1
+      }
+    ],
+    "full_artifact": "git-intelligence.json"
+  },
+  "api_surface": {
+    "note": "API surface artifact is small enough to load directly.",
+    "full_artifact": "api-surface.json"
+  },
+  "concurrency_map": {
+    "total_goroutines": 1,
+    "total_channels": 0,
+    "total_mutexes": 11,
+    "total_contexts": 11,
+    "packages_with_concurrency": 2,
+    "top_packages": [
+      {
+        "package": ".",
+        "goroutines": 1,
+        "channels": 0,
+        "mutexes": 9,
+        "contexts": 8
+      },
+      {
+        "package": "provider",
+        "goroutines": 0,
+        "channels": 0,
+        "mutexes": 2,
+        "contexts": 3
+      }
+    ],
+    "full_artifact": "concurrency-map.json"
+  },
+  "call_graph": {
+    "total_edges": 489,
+    "total_functions": 234,
+    "entry_points": 30,
+    "most_called_top10": [
+      {
+        "name": "fmt.Sprintf",
+        "callers": 29
+      },
+      {
+        "name": "fmt.Errorf",
+        "callers": 25
+      },
+      {
+        "name": "log.Printf",
+        "callers": 13
+      },
+      {
+        "name": "(net/http.Header).Set",
+        "callers": 13
+      },
+      {
+        "name": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Info",
+        "callers": 11
+      },
+      {
+        "name": "(*github.com/Vungle/oauth-mcp-proxy.defaultLogger).Error",
+        "callers": 11
+      },
+      {
+        "name": "net/http.Error",
+        "callers": 9
+      },
+      {
+        "name": "encoding/json.NewEncoder",
+        "callers": 8
+      },
+      {
+        "name": "(*encoding/json.Encoder).Encode",
+        "callers": 8
+      },
+      {
+        "name": "fmt.init",
+        "callers": 8
+      }
+    ],
+    "top_packages_by_internal_edges": [
+      {
+        "pkg": "github.com/Vungle/oauth-mcp-proxy",
+        "internal": 87,
+        "incoming": 51,
+        "outgoing": 5
+      },
+      {
+        "pkg": "provider",
+        "internal": 5,
+        "incoming": 5,
+        "outgoing": 1
+      },
+      {
+        "pkg": "examples/mark3labs/advanced",
+        "internal": 2,
+        "incoming": 0,
+        "outgoing": 18
+      },
+      {
+        "pkg": "examples/mark3labs/simple",
+        "internal": 1,
+        "incoming": 0,
+        "outgoing": 6
+      },
+      {
+        "pkg": "examples/official/advanced",
+        "internal": 1,
+        "incoming": 0,
+        "outgoing": 18
+      },
+      {
+        "pkg": "examples/official/simple",
+        "internal": 1,
+        "incoming": 0,
+        "outgoing": 5
+      },
+      {
+        "pkg": "mark3labs",
+        "internal": 1,
+        "incoming": 4,
+        "outgoing": 3
+      },
+      {
+        "pkg": "mcp",
+        "internal": 0,
+        "incoming": 4,
+        "outgoing": 8
+      }
+    ],
+    "full_artifact": "call-graph.json"
+  }
+}
